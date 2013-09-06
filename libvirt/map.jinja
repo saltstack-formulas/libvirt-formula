@@ -1,0 +1,19 @@
+{% set map = salt['grains.filter_by']({
+    'Debian': {
+        'pkgs': [
+            'libguestfs0',
+            'libguestfs-tools',
+            'libvirt0',
+            'qemu-kvm',
+        ],
+        'service': 'libvirtd',
+    },
+    'RedHat': {
+        'pkgs': [
+            'libguestfs',
+            'libvirt',
+            'qemu-kvm',
+        ],
+        'service': 'libvirtd',
+    },
+}, merge=salt['pillar.get']('libvirt:lookup')) %}
