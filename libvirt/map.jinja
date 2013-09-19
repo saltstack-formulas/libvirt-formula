@@ -16,4 +16,12 @@
         ],
         'service': 'libvirtd',
     },
+    'Arch': {
+        'pkgs': [
+            'libguestfs',
+            'libvirt',
+            'qemu',
+        ],
+        'service': 'libvirtd',
+    },
 }, merge=salt['pillar.get']('libvirt:lookup')) %}
