@@ -2,7 +2,9 @@
 libvirt
 =======
 
-Install and configure libvirt and start the service
+Install and configure libvirt and start the service.  
+More information `SALT AS A CLOUD CONTROLLER
+<https://docs.saltstack.com/en/latest/topics/tutorials/cloud_controller.html>`_.
 
 .. note::
 
@@ -18,4 +20,10 @@ Available states
 ``libvirt``
 -------------
 
-Install libvirt; start the libvirtd service
+Install libvirt; start the libvirtd service, and creates the certificates
+for migration.
+
+``libvirt.keys``
+----------------
+
+Installs the libvirt certificates to allow virtual machine migration.
