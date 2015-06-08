@@ -3,6 +3,9 @@
 libvirt:
   pkg.installed:
     - pkgs: {{ map.pkgs|json }}
+  libvirt.keys:
+    - require:
+      - pkg: libvirt
   service.running:
     - name: {{ map.service }}
     - enable: True
