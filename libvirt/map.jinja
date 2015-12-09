@@ -8,7 +8,7 @@
             'libvirt-bin',
             'python-libvirt',
         ],
-        'service': 'libvirt-bin' if grains['osmajorrelease']|float < 8 else 'libvirtd',
+        'service': 'libvirtd' if grains.get('osmajorrelease', 0)|float >= 8 else 'libvirt-bin',
     },
     'RedHat': {
         'pkgs': [
