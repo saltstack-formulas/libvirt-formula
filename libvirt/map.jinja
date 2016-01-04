@@ -7,6 +7,7 @@
             'qemu-kvm',
             'libvirt-bin',
             'python-libvirt',
+            'gnutls-bin',
         ],
         'service': 'libvirtd' if grains.get('osmajorrelease', 0)|float >= 8 else 'libvirt-bin',
     },
