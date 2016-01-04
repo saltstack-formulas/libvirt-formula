@@ -18,15 +18,14 @@ libvirt.listen.service.override:
     - group: root
     - user: root
     - mode: 644
+    - source: salt://{{ slspath }}/files/listen.conf
     - require:
       - file: libvirt.listen.service.directory
 
 libvirt.listen.systemctl.daemon-reload:
   cmd.run:
     - name: systemctl daemon-reload
-    - require:
-      - file: libvirt.listen.service.override
-    - watch:
+    - onchanges:
       - file: libvirt.listen.service.override
     - watch_in:
       - service: libvirt.service
