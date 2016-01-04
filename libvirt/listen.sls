@@ -1,6 +1,7 @@
 {% from "libvirt/map.jinja" import map with context %}
 include:
   - .install
+  - .service
 
 libvirt.listen.service.directory:
   file.directory:
@@ -19,3 +20,13 @@ libvirt.listen.service.override:
     - mode: 644
     - require:
       - file: libvirt.listen.service.directory
+
+libvirt.listen.systemctl.daemon-reload:
+  cmd.run:
+    - name: systemctl daemon-reload
+    - require:
+      - file: libvirt.listen.service.override
+    - watch:
+      - file: libvirt.listen.service.override
+    - watch_in:
+      - service: libvirt.service
