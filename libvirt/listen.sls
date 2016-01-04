@@ -25,9 +25,7 @@ libvirt.listen.service.override:
 libvirt.listen.systemctl.daemon-reload:
   cmd.run:
     - name: systemctl daemon-reload
-    - require:
-      - file: libvirt.listen.service.override
-    - watch:
+    - onchanges:
       - file: libvirt.listen.service.override
     - watch_in:
       - service: libvirt.service
