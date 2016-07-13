@@ -1,5 +1,5 @@
 include:
-  - .install
+  - .config
 
 libvirt.keys:
 # API changes with version 2016.3.0
@@ -10,4 +10,4 @@ libvirt.keys:
 {% endif %}
     - name: libvirt_keys
     - require:
-      - pkg: libvirt.install
+      - pkg: libvirt.pkg

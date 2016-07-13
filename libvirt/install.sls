@@ -1,5 +1,13 @@
-{% from "libvirt/map.jinja" import map with context %}
+{% from "libvirt/map.jinja" import libvirt_settings with context %}
 
-libvirt.install:
+libvirt.pkg:
   pkg.installed:
-    - pkgs: {{ map.pkgs|json }}
+    - name: {{ libvirt_settings.libvirt_pkg }}
+
+qemu:
+  pkg.installed:
+    - pkg: {{ libvirt_settings.qemu_pkg }}
+
+extra_pkgs:
+  pkg.installed:
+    - pkgs: {{ libvirt_settings.extra_pkgs|json }}

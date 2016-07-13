@@ -1,5 +1,6 @@
-{% from "libvirt/map.jinja" import map with context %}
+{% from "libvirt/map.jinja" import libvirt_settings with context %}
 include:
   - .install
+  - .config
   - .service
   - .keys

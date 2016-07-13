@@ -1,10 +1,11 @@
-{% from "libvirt/map.jinja" import map with context %}
+{% from "libvirt/map.jinja" import libvirt_settings with context %}
 include:
-  - .install
+  - .config
 
 libvirt.service:
   service.running:
-    - name: {{ map.service }}
+    - name: {{ libvirt_settings.libvirt_service }}
     - enable: True
     - watch:
-      - pkg: libvirt.install
+      - pkg: libvirt.pkg
+      - file: libvirt.config
