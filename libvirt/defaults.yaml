@@ -1,0 +1,9 @@
+libvirt:
+  libvirt_pkg: libvirt
+  qemu_pkg: qemu
+  python_pkg: libvirt-python
+  libvirt_service: libvirtd
+  libvirtd_config: /etc/libvirt/libvirtd.conf
+  daemon_config_path: {}
+  extra_pkgs: []
+  

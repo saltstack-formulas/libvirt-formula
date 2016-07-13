@@ -1,31 +1,29 @@
-{% set map = salt['grains.filter_by']({
+{## start with defaults from defaults.yaml ##}
+{% import_yaml "libvirt/defaults.yaml" as default_settings %}
+
+{##
+Setup variables using grain['os_family'] based logic, only add key:values here
+that differ from whats in defaults.yaml
+##}
+{% set os_family_map = salt['grains.filter_by']({
     'Debian': {
-        'pkgs': [
-            'libguestfs0',
-            'libguestfs-tools',
-            'libvirt0',
-            'qemu-kvm',
-            'libvirt-bin',
-            'python-libvirt',
-            'gnutls-bin',
-        ],
-        'service': 'libvirtd' if grains.get('osmajorrelease', 0)|float >= 8 else 'libvirt-bin',
+      'libvirt_pkg': 'libvirt-bin',
+      'libvirt_service': 'libvirtd' if grains.get('osmajorrelease', 0)|float >= 8 else 'libvirt-bin',
+      'qemu_pkg': 'qemu-kvm',
+      'python_pkg': 'python-libvirt',
+      'extra_pkgs': ['libguestfs0', 'libguestfs-tools', 'gnutls-bin', 'virt-top'],
+      'daemon_config_path': '/etc/default',
     },
     'RedHat': {
-        'pkgs': [
-            'libguestfs',
-            'libvirt',
-            'qemu-kvm',
-            'libvirt-python',
-        ],
-        'service': 'libvirtd',
+      'extra_pkgs': ['libguestfs'],
+      'daemon_config_path': '/etc/sysconfig',
     },
     'Arch': {
-        'pkgs': [
-            'libvirt',
-            'qemu',
-            'libvirt-python',
-        ],
-        'service': 'libvirtd',
+      'daemon_config_path': '/etc/conf.d',
     },
-}, merge=salt['pillar.get']('libvirt:lookup')) %}
+  }, grain="os_family", merge=salt['pillar.get']('libvirt:lookup'))
+%}
+  
+{% do default_settings.libvirt.update(os_family_map) %}
+
+{% set libvirt_settings = salt['pillar.get']('libvirt', default=default_settings.libvirt, merge=True) %}
