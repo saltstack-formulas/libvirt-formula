@@ -23,6 +23,27 @@ Available states
 Install libvirt; start the libvirtd service, and creates the certificates
 for migration.
 
+``libvirt.install``
+------------------
+
+Installs the libvirt packages and deps
+
+``libvirt.config``
+------------------
+
+Configures libvirtd.conf and /etc/sysconfig, /etc/default, /etc/conf.d daemon
+files.
+
+``libvirt.service``
+------------------
+
+Starts the libvirtd service
+
+``libvirt.python``
+------------------
+
+Installs the python bindings for libvirt
+
 ``libvirt.keys``
 ----------------
 
