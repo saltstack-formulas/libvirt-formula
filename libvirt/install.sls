@@ -6,7 +6,7 @@ libvirt.pkg:
 
 qemu:
   pkg.installed:
-    - pkg: {{ libvirt_settings.qemu_pkg }}
+    - name: {{ libvirt_settings.qemu_pkg }}
 
 extra_pkgs:
   pkg.installed:
