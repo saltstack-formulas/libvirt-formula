@@ -1,4 +1,4 @@
-{%- set salt_version = salt['grains.get']('saltversion', '') %}
+{%- set salt_version = salt['grains.get']('saltversioninfo', '') %}
 include:
   - .config
 
