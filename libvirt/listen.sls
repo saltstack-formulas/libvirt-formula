@@ -5,7 +5,7 @@ include:
 
 libvirt.listen.service.directory:
   file.directory:
-    - name: /etc/systemd/system/{{ map.service }}.service.d
+    - name: /etc/systemd/system/{{ libvirt_settings.service }}.service.d
     - group: root
     - user: root
     - mode: 755
@@ -14,7 +14,7 @@ libvirt.listen.service.directory:
 
 libvirt.listen.service.override:
   file.managed:
-    - name: /etc/systemd/system/{{ map.service }}.service.d/listen.conf
+    - name: /etc/systemd/system/{{ libvirt_settings.service }}.service.d/listen.conf
     - group: root
     - user: root
     - mode: 644
