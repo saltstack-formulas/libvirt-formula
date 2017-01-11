@@ -10,7 +10,7 @@ libvirt.listen.service.directory:
     - user: root
     - mode: 755
     - require:
-      - pkg: libvirt.install
+      - pkg: libvirt.pkg
 
 libvirt.listen.service.override:
   file.managed:
