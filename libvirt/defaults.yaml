@@ -6,4 +6,3 @@ libvirt:
   libvirtd_config: /etc/libvirt/libvirtd.conf
   daemon_config_path: {}
   extra_pkgs: []
-  

@@ -23,7 +23,7 @@ that differ from whats in defaults.yaml
     },
   }, grain="os_family", merge=salt['pillar.get']('libvirt:lookup'))
 %}
-  
+
 {% do default_settings.libvirt.update(os_family_map) %}
 
 {% set libvirt_settings = salt['pillar.get']('libvirt', default=default_settings.libvirt, merge=True) %}
