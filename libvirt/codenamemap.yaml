@@ -1,0 +1,2 @@
+squeeze:
+  libvirt_service: libvirt-bin
