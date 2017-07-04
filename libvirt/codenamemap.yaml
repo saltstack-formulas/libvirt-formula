@@ -1,0 +1,14 @@
+# Debian
+squeeze:
+  libvirt_pkg: libvirt-bin
+  libvirt_service: libvirt-bin
+jessie:
+  libvirt_pkg: libvirt-bin
+  libvirt_service: libvirtd
+# Ubuntu
+trusty:
+  libvirt_pkg: libvirt-bin
+  libvirt_service: libvirt-bin
+xenial:
+  libvirt_pkg: libvirt-bin
+  libvirt_service: libvirt-bin
