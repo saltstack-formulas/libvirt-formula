@@ -5,6 +5,9 @@ squeeze:
 jessie:
   libvirt_pkg: libvirt-bin
   libvirt_service: libvirtd
+stretch:
+  libvirt_pkg: libvirt-daemon
+  libvirt_service: libvirtd
 # Ubuntu
 trusty:
   libvirt_pkg: libvirt-bin
