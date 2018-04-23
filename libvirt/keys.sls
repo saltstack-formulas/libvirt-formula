@@ -4,9 +4,7 @@ include:
 
 libvirt.keys:
 # API changes with version 2016.3.0
-{%- if salt_version[0]|int < 2016 %}
-  libvirt.keys:
-{%- elif salt_version[1]|int <= 3 %}
+{%- if salt_version[0]|int < 2016 or (salt_version[0]|int == 2016 and salt_version[1]|int <= 3) %}
   libvirt.keys:
 {%- else %}
   virt.keys:
