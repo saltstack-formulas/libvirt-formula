@@ -7,8 +7,8 @@ libvirt:
   libvirtd:
     listen_tls: 0
     listen_tcp: 0
-    tls_port: 16514
-    tcp_port: 16509
+    tls_port: '16514'
+    tcp_port: '16509'
     listen_addr: 0.0.0.0
     unix_sock_group: 'root'
     unix_sock_ro_perms: '0777'
