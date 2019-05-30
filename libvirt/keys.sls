@@ -1,5 +1,6 @@
 {%- set salt_version = salt['grains.get']('saltversioninfo', '') %}
 include:
+  - .python
   - .config
 
 libvirt.keys:
@@ -12,3 +13,4 @@ libvirt.keys:
     - name: libvirt_keys
     - require:
       - pkg: libvirt.pkg
+      - pkg: libvirt-python
