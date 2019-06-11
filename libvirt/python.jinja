@@ -1,0 +1,34 @@
+{%- macro switch_python32(python3, python2) %}
+  {#-
+  Returns arguments depending on the Python environment of the
+  SaltStack minion.
+
+  A `none` argument is returned as an empty string `''`.
+
+  Params:
+    * python3: the parameter to return in case of a Python3 minion.
+    * python2: the parameter to return in case of a Python2 minion.
+
+  Example:
+
+    {%- set package = switch_python32('python3-library', 'python2-library') %}
+    {%- if package %}
+      pkg-install-{{ package }}:
+        pkg.installed:
+          - name: {{ package }}
+    {%- endif %}
+
+  The `package` will be `python3-library` when the SaltStack minion
+  runs under Python3 or `python2-library` otherwise.
+  #}
+  {%- if salt['grains.get']('pythonversion')[0] == 3 %}
+    {%- set selected = python3 %}
+  {%- else %}
+    {%- set selected = python2 %}
+  {%- endif %}
+  {#- Coerce null value to empty string to make tests simpler #}
+  {%- if not selected or selected is none -%}
+  {%- else -%}
+    {{ selected }}
+  {%- endif -%}
+{%- endmacro -%}

@@ -1,0 +1,25 @@
+Arch:
+  daemon_config_path: /etc/conf.d
+  python2_pkg: libvirt-python
+  python3_pkg: libvirt-python3
+Debian:
+  libvirt_pkg: libvirt-daemon-system
+  libvirt_service: libvirtd
+  qemu_pkg: qemu-kvm
+  extra_pkgs:
+    - libguestfs0
+    - libguestfs-tools
+    - gnutls-bin
+    - virt-top
+  daemon_config_path: /etc/default
+RedHat:
+  qemu_pkg: qemu-kvm
+  python2_pkg: libvirt-python
+  python3_pkg: libvirt-python3
+  extra_pkgs:
+    - libguestfs
+  daemon_config_path: /etc/sysconfig
+Suse:
+  python2_pkg: python2-libvirt-python
+  python3_pkg: python3-libvirt-python
+  daemon_config_path: /etc/sysconfig

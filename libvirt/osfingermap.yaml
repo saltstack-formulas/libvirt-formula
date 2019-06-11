@@ -1,17 +1,32 @@
-# Debian
-squeeze:
+## Debian
+# Squeeze
+Debian-6:
   libvirt_pkg: libvirt-bin
   libvirt_service: libvirt-bin
-jessie:
+# Jessie
+Debian-8:
   libvirt_pkg: libvirt-bin
   libvirt_service: libvirtd
-stretch:
+# Stretch
+Debian-9:
   libvirt_pkg: libvirt-daemon
   libvirt_service: libvirtd
-# Ubuntu
-trusty:
+
+## Ubuntu
+# Trusty
+Ubuntu-14.04:
   libvirt_pkg: libvirt-bin
   libvirt_service: libvirt-bin
-xenial:
+# Xenial
+Ubuntu-16.04:
   libvirt_pkg: libvirt-bin
   libvirt_service: libvirt-bin
+
+## Suse
+Leap-42:
+  python2_pkg: libvirt-python
+  python3_pkg: ''
+
+## Fedora
+Fedora-28:
+  python3_pkg: ''
