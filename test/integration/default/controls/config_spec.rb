@@ -22,7 +22,7 @@ params = {
 control 'Libvirt configuration' do
   title 'verify applied configuration'
 
-  describe file('/etc/sysconfig/libvirtd') do
+  describe libvirt.daemon_config_file do
     it { should exist }
     its('content') { should match %r{This\sfile\sis\smanaged\sby\sSalt} }
   end
