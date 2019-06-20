@@ -1,8 +1,8 @@
 libvirt:
   #lookup:
   # - override map.jinja and defaults.yml
-  daemon_opts:
-    libvirtd_opts: '-d'
+  #daemon_opts:
+  #  libvirtd_opts: '-d'
 
   libvirtd:
     listen_tls: 0

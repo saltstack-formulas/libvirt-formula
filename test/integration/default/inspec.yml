@@ -4,4 +4,5 @@ maintainer: Daniel Dehennin
 license: Apache-2.0
 summary: Verify that the libvirt formula is setup and configured correctly
 supports:
+  - os-name: debian
   - os-name: centos
