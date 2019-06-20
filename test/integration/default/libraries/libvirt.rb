@@ -10,6 +10,10 @@ class LibvirtResource < Inspec.resource(1)
   supports platform_name: 'debian'
   supports platform_name: 'centos'
 
+  def initialize
+    @packages = get_packages
+  end
+
   def daemon_config_dir
     return case inspec.os[:family]
            when 'debian'
@@ -24,5 +28,29 @@ class LibvirtResource < Inspec.resource(1)
 
   def daemon_config_file
     return inspec.file(File.join(daemon_config_dir, 'libvirtd'))
+  end
+
+  def packages
+    return @packages
+  end
+
+  def get_packages
+    # defaults.yaml
+    packages = {
+      'libvirt' => ['libvirt'],
+      'qemu' => ['qemu-kvm'],
+      'extra' => ['libguestfs'],
+      'python' => ['libvirt-python'],
+    }
+
+    # osfamily.yaml / osmap.yaml
+    case inspec.os[:family]
+    when 'debian'
+      packages['libvirt'] = ['libvirt-daemon-system']
+      packages['extra'] = ['libguestfs0', 'libguestfs-tools', 'gnutls-bin', 'virt-top']
+      packages['python'] = ['python-libvirt']
+    end
+
+    return packages
   end
 end

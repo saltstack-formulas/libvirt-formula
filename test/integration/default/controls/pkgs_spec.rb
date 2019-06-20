@@ -4,12 +4,7 @@
 # Author: Daniel Dehennin <daniel.dehennin@ac-dijon.fr>
 # Copyright © 2019 Pôle de Compétences Logiciels Libres <eole@ac-dijon.fr>
 #
-packages = {
-  'libvirt' => ['libvirt'],
-  'qemu' => ['qemu-kvm'],
-  'extra' => ['libguestfs'],
-  'python' => ['libvirt-python'],
-}
+packages = libvirt.packages
 
 control 'Libvirt packages' do
   title 'verify installed packages'
