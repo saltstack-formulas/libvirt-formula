@@ -7,6 +7,7 @@
 class LibvirtSocketRoResource < Inspec.resource(1)
   name 'libvirt_socket_ro'
 
+  supports platform_name: 'debian'
   supports platform_name: 'centos'
 
   def initialize

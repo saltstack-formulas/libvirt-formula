@@ -7,6 +7,7 @@
 class LibvirtSocketAdminResource < Inspec.resource(1)
   name 'libvirt_socket_admin'
 
+  supports platform_name: 'debian'
   supports platform_name: 'centos'
 
   def initialize
