@@ -43,40 +43,40 @@ Contributing to this repo
 Please see :ref:`How to contribute <CONTRIBUTING>` for more details.
 
 Available states
-================
+----------------
 
 .. contents::
-    :local:
+   :local:
 
 ``libvirt``
--------------
+^^^^^^^^^^^
 
 Install libvirt; start the libvirtd service, and creates the certificates
 for migration.
 
 ``libvirt.install``
-------------------
+^^^^^^^^^^^^^^^^^^^
 
 Installs the libvirt packages and deps
 
 ``libvirt.config``
-------------------
+^^^^^^^^^^^^^^^^^^
 
 Configures libvirtd.conf and /etc/sysconfig, /etc/default, /etc/conf.d daemon
 files.
 
 ``libvirt.service``
-------------------
+^^^^^^^^^^^^^^^^^^^
 
 Starts the libvirtd service
 
 ``libvirt.python``
-------------------
+^^^^^^^^^^^^^^^^^^
 
 Installs the python bindings for libvirt
 
 ``libvirt.keys``
-----------------
+^^^^^^^^^^^^^^^^
 
 Installs the libvirt certificates to allow virtual machine migration.
 
@@ -124,3 +124,4 @@ Runs all of the stages above in one go: i.e. ``destroy`` + ``converge`` + ``veri
 ^^^^^^^^^^^^^^^^^^^^^
 
 Gives you SSH access to the instance for manual testing.
+
