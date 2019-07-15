@@ -1,6 +1,6 @@
-name: libvirt
-title: Libvirt Formula
-maintainer: Daniel Dehennin
+name: default
+title: libvirt formula
+maintainer: SaltStack Formulas
 license: Apache-2.0
 summary: Verify that the libvirt formula is setup and configured correctly
 supports:
