@@ -1,7 +1,7 @@
 name: libvirt
 os: Debian, CentOS
 os_family: Debian, RedHat
-version: 0.7.0
+version: 1.0.0
 release: 1
 minimum_version: 2018.3
 summary: libvirt formula
