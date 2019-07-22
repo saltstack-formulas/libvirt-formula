@@ -8,6 +8,7 @@ class LibvirtResource < Inspec.resource(1)
   name 'libvirt'
 
   supports platform_name: 'debian'
+  supports platform_name: 'ubuntu'
   supports platform_name: 'centos'
 
   def initialize
