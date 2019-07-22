@@ -1,4 +1,11 @@
+{%- from "libvirt/map.jinja" import libvirt_settings with context %}
+{%- from "libvirt/python.jinja" import switch_python32 with context %}
+
+{%- set package = switch_python32(libvirt_settings.python3_pkg, libvirt_settings.python2_pkg) %}
 {%- set salt_version = salt['grains.get']('saltversioninfo', '') %}
+
+{#- Some OS do not have the python3 library #}
+{%- if package %}
 include:
   - .python
   - .config
@@ -14,3 +21,4 @@ libvirt.keys:
     - require:
       - pkg: libvirt.pkg
       - pkg: libvirt-python
+{%- endif %}
