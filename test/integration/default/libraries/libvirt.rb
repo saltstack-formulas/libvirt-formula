@@ -43,12 +43,19 @@ class LibvirtResource < Inspec.resource(1)
       'python' => ['libvirt-python'],
     }
 
+    if inspec.salt_minion.is_python3?
+      packages['python'] = ['libvirt-python3']
+    end
+
     # osfamily.yaml / osmap.yaml
     case inspec.os[:family]
     when 'debian'
       packages['libvirt'] = ['libvirt-daemon-system']
       packages['extra'] = ['libguestfs0', 'libguestfs-tools', 'gnutls-bin', 'virt-top']
       packages['python'] = ['python-libvirt']
+      if inspec.salt_minion.is_python3?
+        packages['python'] = ['python3-libvirt']
+      end
     end
 
     return packages
