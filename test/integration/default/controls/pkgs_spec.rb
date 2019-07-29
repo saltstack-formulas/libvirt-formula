@@ -9,8 +9,8 @@ packages = libvirt.packages
 control 'Libvirt packages' do
   title 'verify installed packages'
 
-  packages.each do | service, pkgs |
-    pkgs.each do | pkg |
+  packages.each do |service, pkgs|
+    pkgs.each do |pkg|
       describe package(pkg) do
         it { should be_installed }
       end

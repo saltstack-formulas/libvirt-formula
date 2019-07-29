@@ -11,37 +11,35 @@ class LibvirtResource < Inspec.resource(1)
   supports platform_name: 'ubuntu'
   supports platform_name: 'centos'
 
+  attr_reader :packages
+
   def initialize
     @packages = get_packages
   end
 
   def daemon_config_dir
-    return case inspec.os[:family]
-           when 'debian'
-             '/etc/default/'
-           when 'redhat'
-             '/etc/sysconfig'
-           else
-             raise Inspec::Exceptions::ResourceSkipped,
-                   "OS family #{inspec.os[:family]} not supported"
-           end
+    case inspec.os[:family]
+    when 'debian'
+      '/etc/default/'
+    when 'redhat'
+      '/etc/sysconfig'
+    else
+      raise Inspec::Exceptions::ResourceSkipped, "OS family #{inspec.os[:family]} not supported"
+    end
   end
 
   def daemon_config_file
-    return inspec.file(File.join(daemon_config_dir, 'libvirtd'))
+    inspec.file(File.join(daemon_config_dir, 'libvirtd'))
   end
 
-  def packages
-    return @packages
-  end
 
   def get_packages
     # defaults.yaml
     packages = {
       'libvirt' => ['libvirt'],
-      'qemu' => ['qemu-kvm'],
-      'extra' => ['libguestfs'],
-      'python' => ['libvirt-python'],
+      'qemu'    => ['qemu-kvm'],
+      'extra'   => ['libguestfs'],
+      'python'  => ['libvirt-python'],
     }
 
     if inspec.salt_minion.is_python3?
@@ -52,13 +50,14 @@ class LibvirtResource < Inspec.resource(1)
     case inspec.os[:family]
     when 'debian'
       packages['libvirt'] = ['libvirt-daemon-system']
-      packages['extra'] = ['libguestfs0', 'libguestfs-tools', 'gnutls-bin', 'virt-top']
-      packages['python'] = ['python-libvirt']
+      packages['extra']   = ['libguestfs0', 'libguestfs-tools', 'gnutls-bin', 'virt-top']
+      packages['python']  = ['python-libvirt']
+
       if inspec.salt_minion.is_python3?
         packages['python'] = ['python3-libvirt']
       end
     end
 
-    return packages
+    packages
   end
 end
