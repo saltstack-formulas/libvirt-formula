@@ -1,5 +1,41 @@
 # Changelog
 
+# [2.0.0](https://github.com/saltstack-formulas/libvirt-formula/compare/v1.0.0...v2.0.0) (2019-07-29)
+
+
+### Bug Fixes
+
+* **packages:** python2 libvirt library is unusable by Python3 minion ([e16bfad](https://github.com/saltstack-formulas/libvirt-formula/commit/e16bfad))
+
+
+### Continuous Integration
+
+* **travis:** enable default-ubuntu-1804-2019-2-py3 ([6679340](https://github.com/saltstack-formulas/libvirt-formula/commit/6679340))
+
+
+### Tests
+
+* **inspec:** enable Ubuntu platform ([5ae997e](https://github.com/saltstack-formulas/libvirt-formula/commit/5ae997e))
+* **inspec:** python package name depends on Salt environnment ([5322aee](https://github.com/saltstack-formulas/libvirt-formula/commit/5322aee))
+
+
+### BREAKING CHANGES
+
+* **packages:** the Python2 package is now “python2_pkg”.
+
+* libvirt/python.sls: use “switch_python32” macro to select the python
+  package and do nothing if it's not available.
+
+* libvirt/keys.sls: ditoo.
+
+* libvirt/python.jinja: new macro “switch_python32” to select one of
+  the two arguments based on the environment of the SaltStack minion.
+
+* libvirt/defaults.yaml: distinguish python2 and python3 packages.
+
+* libvirt/osfamilymap.yaml (Debian): distinguish python2 and python3
+  packages.
+
 # [1.0.0](https://github.com/saltstack-formulas/libvirt-formula/compare/v0.7.0...v1.0.0) (2019-07-21)
 
 
