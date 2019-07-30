@@ -10,4 +10,6 @@
 # you will need to provide at least an empty dict in this file, e.g.
 # osmap: {}
 ---
-osmap: {}
+Fedora:
+  python2_pkg: python2-libvirt
+  python3_pkg: python3-libvirt
