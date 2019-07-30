@@ -17,52 +17,44 @@ class SaltMinionResource < Inspec.resource(1)
   end
 
   def version
-    return @version_string
+    @version_string
   end
 
   def is_python3?
-    return @version_string >= '3'
+    @version_string >= '3'
   end
 
   def is_python2?
-    return (@version_string >= '2' and @version_string < '3')
+    @version_string >= '2' && @version_string < '3'
   end
 
   def get_version_string
     cmd = inspec.command("python#{@salt_python_version} --version")
+
     if cmd.exit_status != 0
       raise Inspec::Exceptions::ResourceSkipped,
             "Error running 'python#{@salt_python_version} --version': #{cmd.stderr}"
     end
 
-    if not cmd.stdout.empty?
-      return cmd.stdout.split[1]
+    if !cmd.stdout.empty?
+      cmd.stdout.split[1]
     else
-      return cmd.stderr.split[1]
+      cmd.stderr.split[1]
     end
   end
 
   def try_python_import_salt
-    if try_python3_import_salt == 0
-      return 3
-    else
-    end
-
-    if try_python2_import_salt == 0
-      return 2
-    else
-    end
-
-    raise Inspec::Exceptions::ResourceSkipped,
-          "Unable to import salt from python2 or python3"
+    return 3 if try_python3_import_salt == 0
+    return 2 if try_python2_import_salt == 0
+    raise Inspec::Exceptions::ResourceSkipped, "Unable to import salt from python2 or python3"
   end
 
   def try_python3_import_salt
-    return inspec.command('python3 -c "import salt"').exit_status
+    inspec.command('python3 -c "import salt"').exit_status
   end
 
   def try_python2_import_salt
-    return inspec.command('python2 -c "import salt"').exit_status
+    inspec.command('python2 -c "import salt"').exit_status
   end
 
 end

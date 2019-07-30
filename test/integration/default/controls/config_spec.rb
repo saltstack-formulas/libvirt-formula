@@ -38,7 +38,7 @@ control 'Libvirt configuration' do
   }
 
   describe parse_config_file('/etc/libvirt/libvirtd.conf', parse_options) do
-    params.each do | param, value |
+    params.each do |param, value|
       its(param) { should eq value }
     end
   end
