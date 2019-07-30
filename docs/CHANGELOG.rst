@@ -2,6 +2,27 @@
 Changelog
 =========
 
+`2.1.0 <https://github.com/saltstack-formulas/libvirt-formula/compare/v2.0.1...v2.1.0>`_ (2019-07-30)
+---------------------------------------------------------------------------------------------------------
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **travis:** enable default-fedora-27-2017-7-py2 (\ `ef1f3de <https://github.com/saltstack-formulas/libvirt-formula/commit/ef1f3de>`_\ )
+
+Features
+^^^^^^^^
+
+
+* **packages:** set dedicated python package names for Fedora (\ `b02ff7b <https://github.com/saltstack-formulas/libvirt-formula/commit/b02ff7b>`_\ )
+
+Tests
+^^^^^
+
+
+* **inspec:** support Fedora (\ `604a803 <https://github.com/saltstack-formulas/libvirt-formula/commit/604a803>`_\ )
+
 `2.0.1 <https://github.com/saltstack-formulas/libvirt-formula/compare/v2.0.0...v2.0.1>`_ (2019-07-30)
 ---------------------------------------------------------------------------------------------------------
 
