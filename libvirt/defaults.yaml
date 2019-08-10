@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
 libvirt:
   libvirt_pkg: libvirt
   qemu_pkg: qemu
@@ -7,4 +10,3 @@ libvirt:
   libvirtd_config: /etc/libvirt/libvirtd.conf
   daemon_config_path: {}
   extra_pkgs: []
-  

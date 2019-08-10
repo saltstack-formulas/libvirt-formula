@@ -1,7 +1,10 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
 libvirt:
-  #lookup:
-  # - override map.jinja and defaults.yml
-  #daemon_opts:
+  # lookup:
+  #   # override map.jinja and defaults.yaml
+  # daemon_opts:
   #  libvirtd_opts: '-d'
 
   libvirtd:
