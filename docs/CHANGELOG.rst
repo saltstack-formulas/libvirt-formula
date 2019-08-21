@@ -2,6 +2,33 @@
 Changelog
 =========
 
+`2.3.0 <https://github.com/saltstack-formulas/libvirt-formula/compare/v2.2.0...v2.3.0>`_ (2019-08-21)
+---------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **config:** suse family does not have it's own configuration file (\ `a41f784 <https://github.com/saltstack-formulas/libvirt-formula/commit/a41f784>`_\ )
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **travis:** enable “default-opensuse-leap-15-2019-2-py3” platform (\ `3c2f4fa <https://github.com/saltstack-formulas/libvirt-formula/commit/3c2f4fa>`_\ )
+
+Features
+^^^^^^^^
+
+
+* **suse:** add OS family packages and daemon configuration path (\ `72e6aea <https://github.com/saltstack-formulas/libvirt-formula/commit/72e6aea>`_\ )
+
+Tests
+^^^^^
+
+
+* **inspec:** add openSUSE to supported platforms (\ `309e65a <https://github.com/saltstack-formulas/libvirt-formula/commit/309e65a>`_\ )
+
 `2.2.0 <https://github.com/saltstack-formulas/libvirt-formula/compare/v2.1.0...v2.2.0>`_ (2019-08-10)
 ---------------------------------------------------------------------------------------------------------
 
