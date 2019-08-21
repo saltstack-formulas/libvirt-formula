@@ -11,3 +11,4 @@ supports:
   - platform-name: ubuntu
   - platform-name: centos
   - platform-name: fedora
+  - platform-name: opensuse

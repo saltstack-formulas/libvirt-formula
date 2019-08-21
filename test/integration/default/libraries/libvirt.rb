@@ -11,6 +11,7 @@ class LibvirtResource < Inspec.resource(1)
   supports platform_name: 'ubuntu'
   supports platform_name: 'centos'
   supports platform_name: 'fedora'
+  supports platform_name: 'opensuse'
 
   attr_reader :packages
 
@@ -22,7 +23,7 @@ class LibvirtResource < Inspec.resource(1)
     case inspec.os[:family]
     when 'debian'
       '/etc/default/'
-    when 'redhat', 'fedora'
+    when 'redhat', 'fedora', 'suse'
       '/etc/sysconfig'
     else
       raise Inspec::Exceptions::ResourceSkipped, "OS family #{inspec.os[:family]} not supported"
@@ -62,6 +63,15 @@ class LibvirtResource < Inspec.resource(1)
 
       if inspec.salt_minion.is_python3?
         packages['python'] = ['python3-libvirt']
+      end
+    when 'suse'
+      packages['libvirt'] = ['libvirt-daemon-qemu']
+      packages['extra']   = ['libguestfs0']
+
+      if inspec.salt_minion.is_python3?
+        packages['python'] = ['python3-libvirt-python']
+      else
+        packages['python'] = ['python2-libvirt-python']
       end
     end
 

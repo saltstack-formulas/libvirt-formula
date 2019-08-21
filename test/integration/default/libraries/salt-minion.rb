@@ -11,6 +11,7 @@ class SaltMinionResource < Inspec.resource(1)
   supports platform_name: 'ubuntu'
   supports platform_name: 'centos'
   supports platform_name: 'fedora'
+  supports platform_name: 'opensuse'
 
   def initialize
     @salt_python_version = try_python_import_salt

@@ -11,6 +11,7 @@ class LibvirtSocketRoResource < Inspec.resource(1)
   supports platform_name: 'ubuntu'
   supports platform_name: 'centos'
   supports platform_name: 'fedora'
+  supports platform_name: 'opensuse'
 
   def initialize
     @file = inspec.file('/var/run/libvirt/libvirt-sock-ro')
