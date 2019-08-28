@@ -1,9 +1,17 @@
-{% from "libvirt/map.jinja" import libvirt_settings with context %}
+# -*- coding: utf-8 -*-
+# vim: ft=sls
+
+{#- Get the `tplroot` from `tpldir` #}
+{%- set tplroot = tpldir.split('/')[0] %}
+{%- set sls_server_package = tplroot ~ '.server.package' %}
+{%- set sls_server_service = tplroot ~ '.server.service' %}
+{%- from tplroot ~ "/map.jinja" import libvirt_settings with context %}
+
 {% set os_family = salt['grains.get']('os_family', None) %}
 
 include:
-  - .install
-  - .service
+  - {{ sls_server_package }}
+  - {{ sls_server_service }}
 
 libvirt.config:
   file.managed:
