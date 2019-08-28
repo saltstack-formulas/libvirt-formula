@@ -1,6 +1,7 @@
-{% from "libvirt/map.jinja" import libvirt_settings with context %}
+# -*- coding: utf-8 -*-
+# vim: ft=sls
+
 include:
-  - .install
-  - .config
-  - .service
-  - .keys
+  - .server
+  - .qemu
+  - .extra
