@@ -13,16 +13,16 @@ include:
   - {{ sls_server_package }}
   - {{ sls_server_service }}
 
-libvirt.config:
+libvirt-server-config-files-libvirtd-file-managed:
   file.managed:
     - name: {{ libvirt_settings.libvirtd_config }}
     - template: jinja
     - source: salt://{{ slspath }}/templates/libvirtd.conf.jinja
 
-libvirt.daemonconfig:
+libvirt-server-config-files-daemonconfig-file-managed:
   file.managed:
     - name: {{ libvirt_settings.daemon_config_path }}/{{ libvirt_settings.libvirt_service }}
     - template: jinja
     - source: salt://{{ slspath }}/templates/{{ os_family }}/daemon_libvirtd.jinja
     - watch_in:
-      - service: libvirt.service
+      - service: libvirt-server-service-running-service-running

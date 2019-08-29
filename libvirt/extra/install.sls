@@ -5,6 +5,6 @@
 {%- set tplroot = tpldir.split('/')[0] %}
 {%- from tplroot ~ "/map.jinja" import libvirt_settings with context %}
 
-extra_pkgs:
+libvirt-extra-install-pkg-installed:
   pkg.installed:
     - pkgs: {{ libvirt_settings.extra_pkgs|json }}

@@ -17,7 +17,7 @@ include:
   - {{ sls_python }}
   - {{ sls_server_config }}
 
-libvirt.keys:
+libvirt-server-tls-certs-virt-keys:
 # API changes with version 2016.3.0
 {%- if salt_version[0]|int < 2016 or (salt_version[0]|int == 2016 and salt_version[1]|int <= 3) %}
   libvirt.keys:
@@ -26,6 +26,6 @@ libvirt.keys:
 {%- endif %}
     - name: libvirt_keys
     - require:
-      - pkg: libvirt.pkg
-      - pkg: libvirt-python
+      - pkg: libvirt-server-package-install-pkg-installed
+      - pkg: libvirt-python-install-pkg-installed
 {%- endif %}

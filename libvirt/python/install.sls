@@ -10,7 +10,7 @@
 
 {#- Some OS do not have the python3 library #}
 {%- if package %}
-libvirt-python:
+libvirt-python-install-pkg-installed:
   pkg.installed:
     - name: {{ package }}
 {%- endif %}

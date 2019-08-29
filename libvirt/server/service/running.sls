@@ -9,10 +9,10 @@
 include:
   - {{ sls_server_config }}
 
-libvirt.service:
+libvirt-server-service-running-service-running:
   service.running:
     - name: {{ libvirt_settings.libvirt_service }}
     - enable: True
     - watch:
-      - pkg: libvirt.pkg
-      - file: libvirt.config
+      - pkg: libvirt-server-package-install-pkg-installed
+      - file: libvirt-server-config-files-libvirtd-file-managed
