@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`3.0.1 <https://github.com/saltstack-formulas/libvirt-formula/compare/v3.0.0...v3.0.1>`_ (2019-09-02)
+---------------------------------------------------------------------------------------------------------
+
+Documentation
+^^^^^^^^^^^^^
+
+
+* **readme:** update for the new layout (\ `b9fabd3 <https://github.com/saltstack-formulas/libvirt-formula/commit/b9fabd3>`_\ )
+
 `3.0.0 <https://github.com/saltstack-formulas/libvirt-formula/compare/v2.3.1...v3.0.0>`_ (2019-09-02)
 ---------------------------------------------------------------------------------------------------------
 
