@@ -51,34 +51,56 @@ Available states
 ``libvirt``
 ^^^^^^^^^^^
 
-Install libvirt; start the libvirtd service, and creates the certificates
-for migration.
+*Meta-state (This is a state that includes other states)*.
 
-``libvirt.install``
-^^^^^^^^^^^^^^^^^^^
+Install libvirt, qemu and extra packages; configure and start the
+libvirtd service, and creates the certificates for migration.
 
-Installs the libvirt packages and deps
-
-``libvirt.config``
+``libvirt.server``
 ^^^^^^^^^^^^^^^^^^
+
+*Meta-state (This is a state that includes other states)*.
+
+Install libvirt packages; configure and start the libvirtd service,
+and creates the certificates for migration.
+
+
+``libvirt.server.package``
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This state install the libvirt package only.
+
+
+``libvirt.server.config``
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Configures libvirtd.conf and /etc/sysconfig, /etc/default, /etc/conf.d daemon
 files.
 
-``libvirt.service``
-^^^^^^^^^^^^^^^^^^^
+``libvirt.server.service``
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Starts the libvirtd service
+
+``libvirt.server.tls``
+^^^^^^^^^^^^^^^^^^^^^^
+
+Installs the libvirt certificates to allow virtual machine migration.
+
+``libvirt.qemu``
+^^^^^^^^^^^^^^^^
+
+This state install the qemu package only.
+
+``libvirt.extra``
+^^^^^^^^^^^^^^^^^
+
+This state install the extra packages only.
 
 ``libvirt.python``
 ^^^^^^^^^^^^^^^^^^
 
 Installs the python bindings for libvirt
-
-``libvirt.keys``
-^^^^^^^^^^^^^^^^
-
-Installs the libvirt certificates to allow virtual machine migration.
 
 Testing
 -------
