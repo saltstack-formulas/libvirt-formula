@@ -2,6 +2,4 @@
 # vim: ft=sls
 
 include:
-  - .server
-  - .qemu
-  - .extra
+  - .running
