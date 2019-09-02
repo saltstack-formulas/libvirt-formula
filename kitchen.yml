@@ -152,3 +152,20 @@ suites:
     verifier:
       inspec_tests:
         - path: test/integration/default
+  - name: clean
+    provisioner:
+      state_top:
+        base:
+          '*':
+            - libvirt
+            - libvirt.clean
+      pillars:
+        top.sls:
+          base:
+            '*':
+              - libvirt
+      pillars_from_files:
+        libvirt.sls: pillar.example
+    verifier:
+      inspec_tests:
+        - path: test/integration/clean

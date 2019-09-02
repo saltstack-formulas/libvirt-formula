@@ -20,6 +20,7 @@ services:
 env:
   matrix:
     - INSTANCE: default-debian-10-develop-py3
+    - INSTANCE: clean-debian-10-develop-py3
     # - INSTANCE: default-ubuntu-1804-develop-py3
     # - INSTANCE: default-centos-7-develop-py3
     # - INSTANCE: default-fedora-30-develop-py3
