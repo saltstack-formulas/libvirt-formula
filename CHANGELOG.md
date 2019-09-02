@@ -1,5 +1,46 @@
 # Changelog
 
+# [3.0.0](https://github.com/saltstack-formulas/libvirt-formula/compare/v2.3.1...v3.0.0) (2019-09-02)
+
+
+### Code Refactoring
+
+* **states:** ids must conform to “template-formula” standard ([8adfe9e](https://github.com/saltstack-formulas/libvirt-formula/commit/8adfe9e))
+
+
+### Continuous Integration
+
+* **kitchen+travis:** replace EOL pre-salted images ([262c063](https://github.com/saltstack-formulas/libvirt-formula/commit/262c063))
+
+
+### Features
+
+* **cert:** key and certificate generation is a server sub component ([616b585](https://github.com/saltstack-formulas/libvirt-formula/commit/616b585))
+* **config:** the configuration is a server sub component ([6dc318d](https://github.com/saltstack-formulas/libvirt-formula/commit/6dc318d))
+* **layout:** initialize the new top level layout ([886198b](https://github.com/saltstack-formulas/libvirt-formula/commit/886198b))
+* **packages:** dispatch package installation per component ([f9e587d](https://github.com/saltstack-formulas/libvirt-formula/commit/f9e587d))
+* **packages:** the python library is a dedicated component ([d07a3ec](https://github.com/saltstack-formulas/libvirt-formula/commit/d07a3ec))
+* **service:** service is a subcomponent of “libvirt.server” ([c51d2d2](https://github.com/saltstack-formulas/libvirt-formula/commit/c51d2d2))
+
+
+### BREAKING CHANGES
+
+* **states:** “libvirt.pkg” become “libvirt-server-package-install-pkg-installed”
+* **layout:** the layout is completly modified for single state.apply
+* **states:** “libvirt.daemonconfig” become “libvirt-server-config-files-daemonconfig-file-managed”
+* **states:** “libvirt.service” become “libvirt-server-service-running-service-running”
+* **states:** “libvirt.keys” become “libvirt-server-tls-certs-virt-keys”
+* **states:** “libvirt-python” become “libvirt-python-install-pkg-install”
+* **states:** “qemu” become “libvirt-qemu-install-pkg-installed”
+* **states:** “libvirt.config” become “libvirt-server-config-files-libvirtd-file-managed”
+* **cert:** the key is now libvirt.server.tls.certs
+* **service:** the service is now libvirt.server.service.running
+* **config:** the configuration is now libvirt.server.config.files
+* **packages:** libvirt package is installed by libvirt.server.package.install
+* **packages:** qemu package is installed by libvirt.qemu.install
+* **packages:** extra packages are installed by libvirt.extra.install
+* **states:** “extra_pkgs” become “libvirt-extra-install-pkg-installed”
+
 ## [2.3.1](https://github.com/saltstack-formulas/libvirt-formula/compare/v2.3.0...v2.3.1) (2019-08-22)
 
 
