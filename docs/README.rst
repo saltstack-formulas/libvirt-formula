@@ -56,6 +56,13 @@ Available states
 Install libvirt, qemu and extra packages; configure and start the
 libvirtd service, and creates the certificates for migration.
 
+``libvirt.clean``
+^^^^^^^^^^^^^^^^^
+
+*Meta-state (This is a state that includes other states)*.
+
+Clean the extra and qemu packages, the server and the python package.
+
 ``libvirt.server``
 ^^^^^^^^^^^^^^^^^^
 
@@ -64,12 +71,24 @@ libvirtd service, and creates the certificates for migration.
 Install libvirt packages; configure and start the libvirtd service,
 and creates the certificates for migration.
 
+``libvirt.server.clean``
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+*Meta-state (This is a state that includes other states)*.
+
+Clean the service, the configuration files and the packages. Any
+generated certificates is not handled.
 
 ``libvirt.server.package``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This state install the libvirt package only.
 
+``libvirt.server.package.clean``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This state remove the libvirt package only and depends on
+``libvirt.server.config.clean``.
 
 ``libvirt.server.config``
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -77,10 +96,21 @@ This state install the libvirt package only.
 Configures libvirtd.conf and /etc/sysconfig, /etc/default, /etc/conf.d daemon
 files.
 
+``libvirt.server.config.clean``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Delete libvirtd.conf and /etc/sysconfig, /etc/default, /etc/conf.d daemon
+files and depends on ``libvirt.server.service.clean``.
+
 ``libvirt.server.service``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Starts the libvirtd service
+
+``libvirt.server.service.clean``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Disable and stop the libvirtd service.
 
 ``libvirt.server.tls``
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -92,15 +122,30 @@ Installs the libvirt certificates to allow virtual machine migration.
 
 This state install the qemu package only.
 
+``libvirt.qemu.clean``
+^^^^^^^^^^^^^^^^^^^^^^
+
+This state remove the qemu package only.
+
 ``libvirt.extra``
 ^^^^^^^^^^^^^^^^^
 
 This state install the extra packages only.
 
+``libvirt.extra.clean``
+^^^^^^^^^^^^^^^^^^^^^^^
+
+This state remove the extra packages only.
+
 ``libvirt.python``
 ^^^^^^^^^^^^^^^^^^
 
 Installs the python bindings for libvirt
+
+``libvirt.python.clean``
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+This state remove the python bindings package for libvirt only.
 
 Testing
 -------
