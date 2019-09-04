@@ -1,5 +1,28 @@
 # Changelog
 
+# [3.1.0](https://github.com/saltstack-formulas/libvirt-formula/compare/v3.0.1...v3.1.0) (2019-09-04)
+
+
+### Continuous Integration
+
+* **kitchen+travis:** check the clean states on develop salt ([0e735c0](https://github.com/saltstack-formulas/libvirt-formula/commit/0e735c0))
+
+
+### Documentation
+
+* **readme:** explain the new “clean” states ([cceb4d3](https://github.com/saltstack-formulas/libvirt-formula/commit/cceb4d3))
+
+
+### Features
+
+* **clean:** add cleaning states ([dd53de0](https://github.com/saltstack-formulas/libvirt-formula/commit/dd53de0))
+
+
+### Tests
+
+* **clean:** check for clean states ([0978ab0](https://github.com/saltstack-formulas/libvirt-formula/commit/0978ab0))
+* **inspec:** share libraries between profiles ([6f816e0](https://github.com/saltstack-formulas/libvirt-formula/commit/6f816e0))
+
 ## [3.0.1](https://github.com/saltstack-formulas/libvirt-formula/compare/v3.0.0...v3.0.1) (2019-09-02)
 
 
