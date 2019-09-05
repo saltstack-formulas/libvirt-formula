@@ -20,6 +20,8 @@ libvirt-server-config-files-libvirtd-file-managed:
     - source: salt://{{ slspath }}/templates/libvirtd.conf.jinja
     - require:
       - pkg: libvirt-server-package-install-pkg-installed
+    - watch_in:
+      - service: libvirt-server-service-running-service-running
 
 libvirt-server-config-files-daemonconfig-file-managed:
   file.managed:
