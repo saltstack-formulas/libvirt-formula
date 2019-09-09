@@ -1,5 +1,22 @@
 # Changelog
 
+## [3.1.1](https://github.com/saltstack-formulas/libvirt-formula/compare/v3.1.0...v3.1.1) (2019-09-09)
+
+
+### Bug Fixes
+
+* **config:** libvirtd configuration changes must restart the service ([4d6f38e](https://github.com/saltstack-formulas/libvirt-formula/commit/4d6f38e))
+
+
+### Code Refactoring
+
+* **config:** explicit package requisite ([8afec46](https://github.com/saltstack-formulas/libvirt-formula/commit/8afec46))
+
+
+### Continuous Integration
+
+* use `dist: bionic` & apply `opensuse-leap-15` SCP error workaround ([400d686](https://github.com/saltstack-formulas/libvirt-formula/commit/400d686))
+
 # [3.1.0](https://github.com/saltstack-formulas/libvirt-formula/compare/v3.0.1...v3.1.0) (2019-09-04)
 
 
