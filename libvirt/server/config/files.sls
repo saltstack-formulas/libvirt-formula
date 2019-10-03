@@ -6,6 +6,7 @@
 {%- set sls_server_package = tplroot ~ '.server.package' %}
 {%- set sls_server_service = tplroot ~ '.server.service' %}
 {%- from tplroot ~ "/map.jinja" import libvirt_settings with context %}
+{%- from tplroot ~ "/libtofs.jinja" import files_switch with context %}
 
 {% set os_family = salt['grains.get']('os_family', None) %}
 
@@ -17,7 +18,11 @@ libvirt-server-config-files-libvirtd-file-managed:
   file.managed:
     - name: {{ libvirt_settings.libvirtd_config }}
     - template: jinja
-    - source: salt://{{ slspath }}/templates/libvirtd.conf.jinja
+    - source: {{ files_switch(['libvirtd.conf.jinja'],
+                              lookup='libvirt-server-config-files-libvirtd-file-managed',
+                              use_subpath=True
+                 )
+              }}
     - require:
       - pkg: libvirt-server-package-install-pkg-installed
     - watch_in:
@@ -27,7 +32,11 @@ libvirt-server-config-files-daemonconfig-file-managed:
   file.managed:
     - name: {{ libvirt_settings.daemon_config_path }}/{{ libvirt_settings.libvirt_service }}
     - template: jinja
-    - source: salt://{{ slspath }}/templates/{{ os_family }}/daemon_libvirtd.jinja
+    - source: {{ files_switch(['daemon_libvirtd.jinja'],
+                              lookup='libvirt-server-config-files-daemonconfig-file-managed',
+                              use_subpath=True
+                 )
+              }}
     - require:
       - pkg: libvirt-server-package-install-pkg-installed
     - watch_in:
