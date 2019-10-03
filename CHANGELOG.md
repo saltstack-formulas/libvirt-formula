@@ -1,5 +1,21 @@
 # Changelog
 
+# [3.2.0](https://github.com/saltstack-formulas/libvirt-formula/compare/v3.1.1...v3.2.0) (2019-10-03)
+
+
+### Continuous Integration
+
+* **kitchen:** change `log_level` to `debug` instead of `info` ([198fe0b](https://github.com/saltstack-formulas/libvirt-formula/commit/198fe0b))
+* **kitchen:** install required packages to bootstrapped `opensuse` [skip ci] ([adb9004](https://github.com/saltstack-formulas/libvirt-formula/commit/adb9004))
+* **kitchen:** use bootstrapped `opensuse` images until `2019.2.2` [skip ci] ([8bc62c7](https://github.com/saltstack-formulas/libvirt-formula/commit/8bc62c7))
+* **platform:** add `arch-base-latest` (commented out for now) [skip ci] ([4ba9be5](https://github.com/saltstack-formulas/libvirt-formula/commit/4ba9be5))
+* **yamllint:** add rule `empty-values` & use new `yaml-files` setting ([3e522e8](https://github.com/saltstack-formulas/libvirt-formula/commit/3e522e8))
+
+
+### Features
+
+* **tofs:** use TOFS to distribute configuration templates to minion ([8cd04f9](https://github.com/saltstack-formulas/libvirt-formula/commit/8cd04f9))
+
 ## [3.1.1](https://github.com/saltstack-formulas/libvirt-formula/compare/v3.1.0...v3.1.1) (2019-09-09)
 
 
