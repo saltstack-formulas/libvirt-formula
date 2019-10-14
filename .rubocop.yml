@@ -7,10 +7,4 @@ Metrics/LineLength:
   # Based on https://github.com/PyCQA/flake8-bugbear#opinionated-warnings (`B950`)
   Max: 88
 
-# libvirt-formula overredies
-Lint/AmbiguousRegexpLiteral:
-  # Exclude { should match /<REGEX>/ }
-  Exclude:
-    - 'test/integration/default/controls/config_spec.rb'
-
 # Any offenses that should be fixed, e.g. collected via. `rubocop --auto-gen-config`

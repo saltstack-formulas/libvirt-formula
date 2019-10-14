@@ -23,12 +23,12 @@ control 'Libvirt configuration' do
 
   describe libvirt.daemon_config_file do
     it { should exist }
-    its('content') { should match /This\sfile\sis\smanaged\sby\sSalt/ }
+    its('content') { should match(/This\sfile\sis\smanaged\sby\sSalt/) }
   end
 
   describe file('/etc/libvirt/libvirtd.conf') do
     it { should exist }
-    its('content') { should match /This\sfile\sis\smanaged\sby\sSalt/ }
+    its('content') { should match(/This\sfile\sis\smanaged\sby\sSalt/) }
   end
 
   parse_options = {
