@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # config_spec.rb -- Libvirt configuration InSpec control
 # Author: Daniel Dehennin <daniel.dehennin@ac-dijon.fr>

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # service_spec.rb -- Libvirt service InSpec control
 # Author: Daniel Dehennin <daniel.dehennin@ac-dijon.fr>

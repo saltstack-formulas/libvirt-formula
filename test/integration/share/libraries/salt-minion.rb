@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # python_version.rb -- Python version InSpec resources
 # Author: Daniel Dehennin <daniel.dehennin@ac-dijon.fr>

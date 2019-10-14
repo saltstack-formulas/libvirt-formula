@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # sockets_rw_spec.rb -- Libvirt read/write socket InSpec control
 # Author: Daniel Dehennin <daniel.dehennin@ac-dijon.fr>

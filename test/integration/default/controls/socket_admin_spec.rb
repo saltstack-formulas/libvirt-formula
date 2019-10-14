@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # sockets_admin_spec.rb -- Libvirt sockets InSpec control
 # Author: Daniel Dehennin <daniel.dehennin@ac-dijon.fr>

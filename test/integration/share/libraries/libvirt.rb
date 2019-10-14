@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # libvirt.rb -- Libvirt InSpec resources
 # Author: Daniel Dehennin <daniel.dehennin@ac-dijon.fr>
