@@ -48,6 +48,7 @@ class SaltMinionResource < Inspec.resource(1)
   def try_python_import_salt
     return 3 if try_python3_import_salt.zero?
     return 2 if try_python2_import_salt.zero?
+
     raise Inspec::Exceptions::ResourceSkipped, "Unable to import salt from python2 or python3"
   end
 
