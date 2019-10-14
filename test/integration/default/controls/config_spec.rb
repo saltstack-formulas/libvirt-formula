@@ -1,9 +1,8 @@
-# coding: utf-8
-#
+# frozen_string_literal: true
+
 # config_spec.rb -- Libvirt configuration InSpec control
 # Author: Daniel Dehennin <daniel.dehennin@ac-dijon.fr>
-# Copyright © 2019 Pôle de Compétences Logiciels Libres <eole@ac-dijon.fr>
-#
+# Copyright (C) 2019 Pole de Competences Logiciels Libres <eole@ac-dijon.fr>
 
 params = {
   'listen_tls' => '0',
@@ -16,7 +15,7 @@ params = {
   'unix_sock_rw_perms' => '0770',
   'auth_unix_ro' => 'none',
   'auth_unix_rw' => 'none',
-  'auth_tcp' => 'none',
+  'auth_tcp' => 'none'
 }
 
 control 'Libvirt configuration' do
@@ -24,17 +23,17 @@ control 'Libvirt configuration' do
 
   describe libvirt.daemon_config_file do
     it { should exist }
-    its('content') { should match %r{This\sfile\sis\smanaged\sby\sSalt} }
+    its('content') { should match /This\sfile\sis\smanaged\sby\sSalt/ }
   end
 
   describe file('/etc/libvirt/libvirtd.conf') do
     it { should exist }
-    its('content') { should match %r{This\sfile\sis\smanaged\sby\sSalt} }
+    its('content') { should match /This\sfile\sis\smanaged\sby\sSalt/ }
   end
 
   parse_options = {
     # Value can be surrounded by quotes, or not
-    assignment_regex: /^\s*([^=]*?)\s*=\s*['"]?(.*?)['"]?\s*$/,
+    assignment_regex: /^\s*([^=]*?)\s*=\s*['"]?(.*?)['"]?\s*$/
   }
 
   describe parse_config_file('/etc/libvirt/libvirtd.conf', parse_options) do
@@ -42,5 +41,4 @@ control 'Libvirt configuration' do
       its(param) { should eq value }
     end
   end
-
 end

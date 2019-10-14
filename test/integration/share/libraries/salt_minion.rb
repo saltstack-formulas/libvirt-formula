@@ -1,9 +1,9 @@
-# coding: utf-8
-#
+# frozen_string_literal: true
+
 # python_version.rb -- Python version InSpec resources
 # Author: Daniel Dehennin <daniel.dehennin@ac-dijon.fr>
-# Copyright © 2019 Pôle de Compétences Logiciels Libres <eole@ac-dijon.fr>
-#
+# Copyright (C) 2019 Pole de Competences Logiciels Libres <eole@ac-dijon.fr>
+
 class SaltMinionResource < Inspec.resource(1)
   name 'salt_minion'
 
@@ -15,40 +15,42 @@ class SaltMinionResource < Inspec.resource(1)
 
   def initialize
     @salt_python_version = try_python_import_salt
-    @version_string = get_version_string
+    @version_string = version_string
   end
 
   def version
     @version_string
   end
 
-  def is_python3?
+  def python3?
     @version_string >= '3'
   end
 
-  def is_python2?
+  def python2?
     @version_string >= '2' && @version_string < '3'
   end
 
-  def get_version_string
+  def version_string
     cmd = inspec.command("python#{@salt_python_version} --version")
 
-    if cmd.exit_status != 0
+    unless cmd.exit_status.zero?
       raise Inspec::Exceptions::ResourceSkipped,
             "Error running 'python#{@salt_python_version} --version': #{cmd.stderr}"
     end
 
-    if !cmd.stdout.empty?
-      cmd.stdout.split[1]
-    else
+    if cmd.stdout.empty?
       cmd.stderr.split[1]
+    else
+      cmd.stdout.split[1]
     end
   end
 
   def try_python_import_salt
-    return 3 if try_python3_import_salt == 0
-    return 2 if try_python2_import_salt == 0
-    raise Inspec::Exceptions::ResourceSkipped, "Unable to import salt from python2 or python3"
+    return 3 if try_python3_import_salt.zero?
+    return 2 if try_python2_import_salt.zero?
+
+    raise Inspec::Exceptions::ResourceSkipped,
+          'Unable to import salt from python2 or python3'
   end
 
   def try_python3_import_salt
@@ -58,5 +60,4 @@ class SaltMinionResource < Inspec.resource(1)
   def try_python2_import_salt
     inspec.command('python2 -c "import salt"').exit_status
   end
-
 end

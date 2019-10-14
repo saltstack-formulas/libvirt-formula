@@ -1,9 +1,9 @@
-# coding: utf-8
-#
+# frozen_string_literal: true
+
 # libvirt_socket_admin.rb -- Libvirt admin socket InSpec resources
 # Author: Daniel Dehennin <daniel.dehennin@ac-dijon.fr>
-# Copyright © 2019 Pôle de Compétences Logiciels Libres <eole@ac-dijon.fr>
-#
+# Copyright (C) 2019 Pole de Competences Logiciels Libres <eole@ac-dijon.fr>
+
 class LibvirtSocketAdminResource < Inspec.resource(1)
   name 'libvirt_socket_admin'
 
@@ -17,12 +17,23 @@ class LibvirtSocketAdminResource < Inspec.resource(1)
     @file = inspec.file('/var/run/libvirt/libvirt-admin-sock')
   end
 
+  # We could not inherit from Inspec::Resources::FileResource
+  # https://github.com/inspec/inspec/issues/4328
   def exist?
     @file.exist?
   end
 
+  # Proxy all method unknown method calls to
+  # Inspec::Resources::FileResource
   def method_missing(name)
-    @file.send(name)
+    if name
+      @file.send(name)
+    else
+      super
+    end
   end
 
+  def respond_to_missing?(name, _include_private)
+    name == 'exist?'
+  end
 end
