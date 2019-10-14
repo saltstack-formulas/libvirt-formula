@@ -63,11 +63,11 @@ class LibvirtResource < Inspec.resource(1)
       packages['libvirt'] = ['libvirt-daemon-qemu']
       packages['extra']   = ['libguestfs0']
 
-      if inspec.salt_minion.is_python3?
-        packages['python'] = ['python3-libvirt-python']
-      else
-        packages['python'] = ['python2-libvirt-python']
-      end
+      packages['python'] = if inspec.salt_minion.is_python3?
+                             ['python3-libvirt-python']
+                           else
+                             packages['python'] = ['python2-libvirt-python']
+                           end
     end
 
     packages
