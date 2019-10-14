@@ -15,7 +15,7 @@ params = {
   'unix_sock_rw_perms' => '0770',
   'auth_unix_ro' => 'none',
   'auth_unix_rw' => 'none',
-  'auth_tcp' => 'none',
+  'auth_tcp' => 'none'
 }
 
 control 'Libvirt configuration' do
@@ -33,7 +33,7 @@ control 'Libvirt configuration' do
 
   parse_options = {
     # Value can be surrounded by quotes, or not
-    assignment_regex: /^\s*([^=]*?)\s*=\s*['"]?(.*?)['"]?\s*$/,
+    assignment_regex: /^\s*([^=]*?)\s*=\s*['"]?(.*?)['"]?\s*$/
   }
 
   describe parse_config_file('/etc/libvirt/libvirtd.conf', parse_options) do

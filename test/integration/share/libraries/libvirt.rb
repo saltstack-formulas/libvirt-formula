@@ -40,7 +40,7 @@ class LibvirtResource < Inspec.resource(1)
       'libvirt' => ['libvirt'],
       'qemu'    => ['qemu-kvm'],
       'extra'   => ['libguestfs'],
-      'python'  => ['libvirt-python'],
+      'python'  => ['libvirt-python']
     }
 
     if inspec.salt_minion.is_python3?
