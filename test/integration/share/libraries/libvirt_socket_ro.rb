@@ -17,6 +17,8 @@ class LibvirtSocketRoResource < Inspec.resource(1)
     @file = inspec.file('/var/run/libvirt/libvirt-sock-ro')
   end
 
+  # We could not inherit from Inspec::Resources::FileResource
+  # https://github.com/inspec/inspec/issues/4328
   def exist?
     @file.exist?
   end
@@ -29,6 +31,10 @@ class LibvirtSocketRoResource < Inspec.resource(1)
     else
       super
     end
+  end
+
+  def respond_to_missing?(name, include_private)
+    name == 'exist?'
   end
 
 end
