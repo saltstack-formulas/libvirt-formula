@@ -22,11 +22,11 @@ class SaltMinionResource < Inspec.resource(1)
     @version_string
   end
 
-  def is_python3?
+  def python3?
     @version_string >= '3'
   end
 
-  def is_python2?
+  def python2?
     @version_string >= '2' && @version_string < '3'
   end
 

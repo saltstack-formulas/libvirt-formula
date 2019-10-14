@@ -43,7 +43,7 @@ class LibvirtResource < Inspec.resource(1)
       'python'  => ['libvirt-python']
     }
 
-    packages['python'] = ['libvirt-python3'] if inspec.salt_minion.is_python3?
+    packages['python'] = ['libvirt-python3'] if inspec.salt_minion.python3?
 
     # osfamily.yaml / osmap.yaml
     case inspec.os[:family]
@@ -52,18 +52,18 @@ class LibvirtResource < Inspec.resource(1)
       packages['extra']   = ['libguestfs0', 'libguestfs-tools', 'gnutls-bin', 'virt-top']
       packages['python']  = ['python-libvirt']
 
-      packages['python'] = ['python3-libvirt'] if inspec.salt_minion.is_python3?
+      packages['python'] = ['python3-libvirt'] if inspec.salt_minion.python3?
 
     when 'fedora'
       packages['python']  = ['python2-libvirt']
 
-      packages['python'] = ['python3-libvirt'] if inspec.salt_minion.is_python3?
+      packages['python'] = ['python3-libvirt'] if inspec.salt_minion.python3?
 
     when 'suse'
       packages['libvirt'] = ['libvirt-daemon-qemu']
       packages['extra']   = ['libguestfs0']
 
-      packages['python'] = if inspec.salt_minion.is_python3?
+      packages['python'] = if inspec.salt_minion.python3?
                              ['python3-libvirt-python']
                            else
                              packages['python'] = ['python2-libvirt-python']
