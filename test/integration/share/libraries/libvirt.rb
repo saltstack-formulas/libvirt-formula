@@ -26,7 +26,8 @@ class LibvirtResource < Inspec.resource(1)
     when 'redhat', 'fedora', 'suse'
       '/etc/sysconfig'
     else
-      raise Inspec::Exceptions::ResourceSkipped, "OS family #{inspec.os[:family]} not supported"
+      raise Inspec::Exceptions::ResourceSkipped,
+            "OS family #{inspec.os[:family]} not supported"
     end
   end
 
