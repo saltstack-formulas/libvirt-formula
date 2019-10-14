@@ -15,7 +15,7 @@ class SaltMinionResource < Inspec.resource(1)
 
   def initialize
     @salt_python_version = try_python_import_salt
-    @version_string = get_version_string
+    @version_string = version_string
   end
 
   def version
@@ -30,7 +30,7 @@ class SaltMinionResource < Inspec.resource(1)
     @version_string >= '2' && @version_string < '3'
   end
 
-  def get_version_string
+  def version_string
     cmd = inspec.command("python#{@salt_python_version} --version")
 
     if cmd.exit_status != 0

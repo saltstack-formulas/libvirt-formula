@@ -16,7 +16,7 @@ class LibvirtResource < Inspec.resource(1)
   attr_reader :packages
 
   def initialize
-    @packages = get_packages
+    @packages = build_packages
   end
 
   def daemon_config_dir
@@ -34,7 +34,7 @@ class LibvirtResource < Inspec.resource(1)
     inspec.file(File.join(daemon_config_dir, 'libvirtd'))
   end
 
-  def get_packages
+  def build_packages
     # defaults.yaml
     packages = {
       'libvirt' => ['libvirt'],
