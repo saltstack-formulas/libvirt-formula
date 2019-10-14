@@ -33,15 +33,15 @@ class SaltMinionResource < Inspec.resource(1)
   def version_string
     cmd = inspec.command("python#{@salt_python_version} --version")
 
-    if cmd.exit_status != 0
+    unless cmd.exit_status.zero?
       raise Inspec::Exceptions::ResourceSkipped,
             "Error running 'python#{@salt_python_version} --version': #{cmd.stderr}"
     end
 
-    if !cmd.stdout.empty?
-      cmd.stdout.split[1]
-    else
+    if cmd.stdout.empty?
       cmd.stderr.split[1]
+    else
+      cmd.stdout.split[1]
     end
   end
 

@@ -37,40 +37,72 @@ class LibvirtResource < Inspec.resource(1)
 
   def build_packages
     # defaults.yaml
-    packages = {
-      'libvirt' => ['libvirt'],
-      'qemu'    => ['qemu-kvm'],
-      'extra'   => ['libguestfs'],
-      'python'  => ['libvirt-python']
-    }
+    packages = build_default_packages
 
-    packages['python'] = ['libvirt-python3'] if inspec.salt_minion.python3?
+    packages.merge!(build_overwrite_packages)
+  end
 
+  def build_overwrite_packages
     # osfamily.yaml / osmap.yaml
     case inspec.os[:family]
     when 'debian'
-      packages['libvirt'] = ['libvirt-daemon-system']
-      packages['extra']   = ['libguestfs0', 'libguestfs-tools', 'gnutls-bin', 'virt-top']
-      packages['python']  = ['python-libvirt']
-
-      packages['python'] = ['python3-libvirt'] if inspec.salt_minion.python3?
+      build_debian_packages
 
     when 'fedora'
-      packages['python']  = ['python2-libvirt']
-
-      packages['python'] = ['python3-libvirt'] if inspec.salt_minion.python3?
+      build_fedora_packages
 
     when 'suse'
-      packages['libvirt'] = ['libvirt-daemon-qemu']
-      packages['extra']   = ['libguestfs0']
+      build_suse_packages
 
-      packages['python'] = if inspec.salt_minion.python3?
-                             ['python3-libvirt-python']
-                           else
-                             packages['python'] = ['python2-libvirt-python']
-                           end
+    else
+      {}
     end
+  end
 
-    packages
+  def build_default_packages
+    {
+      'libvirt' => ['libvirt'],
+      'qemu' => ['qemu-kvm'],
+      'extra' => ['libguestfs'],
+      'python' => if inspec.salt_minion.python3?
+                    ['libvirt-python3']
+                  else
+                    ['libvirt-python']
+                  end
+    }
+  end
+
+  def build_debian_packages
+    {
+      'libvirt' => ['libvirt-daemon-system'],
+      'extra' => %w[libguestfs0 libguestfs-tools gnutls-bin virt-top],
+      'python' => if inspec.salt_minion.python3?
+                    ['python3-libvirt']
+                  else
+                    ['python-libvirt']
+                  end
+    }
+  end
+
+  def build_fedora_packages
+    {
+      'python' => if inspec.salt_minion.python3?
+                    ['python3-libvirt']
+                  else
+                    ['python2-libvirt']
+                  end
+    }
+  end
+
+  def build_suse_packages
+    {
+      'libvirt' => ['libvirt-daemon-qemu'],
+      'extra' => ['libguestfs0'],
+      'python' => if inspec.salt_minion.python3?
+                    ['python3-libvirt-python']
+                  else
+                    ['python2-libvirt-python']
+                  end
+    }
   end
 end
