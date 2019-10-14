@@ -58,5 +58,4 @@ class SaltMinionResource < Inspec.resource(1)
   def try_python2_import_salt
     inspec.command('python2 -c "import salt"').exit_status
   end
-
 end
