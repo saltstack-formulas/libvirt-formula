@@ -1,5 +1,45 @@
 # Changelog
 
+## [3.2.1](https://github.com/saltstack-formulas/libvirt-formula/compare/v3.2.0...v3.2.1) (2019-10-14)
+
+
+### Bug Fixes
+
+* **rubocop:** add an empty line after magic comments ([](https://github.com/saltstack-formulas/libvirt-formula/commit/ca963fe))
+* **rubocop:** add empty line after guard clause ([](https://github.com/saltstack-formulas/libvirt-formula/commit/1978566))
+* **rubocop:** avoid comma after the last item of a hash ([](https://github.com/saltstack-formulas/libvirt-formula/commit/a8c5d31))
+* **rubocop:** do not prefix reader method names with get_ ([](https://github.com/saltstack-formulas/libvirt-formula/commit/e7ced7b))
+* **rubocop:** extra empty line detected at block body end ([](https://github.com/saltstack-formulas/libvirt-formula/commit/f4dcb5a))
+* **rubocop:** extra empty line detected at class body end ([](https://github.com/saltstack-formulas/libvirt-formula/commit/fc0af73))
+* **rubocop:** favor modifier if usage when having a single-line body ([](https://github.com/saltstack-formulas/libvirt-formula/commit/e3a9716))
+* **rubocop:** missing magic comment “frozen_string_literal: true” ([](https://github.com/saltstack-formulas/libvirt-formula/commit/a07dbfb))
+* **rubocop:** prefer single-quoted strings and split too long line ([](https://github.com/saltstack-formulas/libvirt-formula/commit/7944e24))
+* **rubocop:** remove “is_” prefix from predicate name ([](https://github.com/saltstack-formulas/libvirt-formula/commit/c3d20bb))
+* **rubocop:** simplify complex methods ([](https://github.com/saltstack-formulas/libvirt-formula/commit/2f6bb0e))
+* **rubocop:** the name of source file should use snake_case ([](https://github.com/saltstack-formulas/libvirt-formula/commit/fde048a))
+* **rubocop:** unnecessary utf-8 encoding comment ([](https://github.com/saltstack-formulas/libvirt-formula/commit/d605400))
+* **rubocop:** unused block argument ([](https://github.com/saltstack-formulas/libvirt-formula/commit/7a0054c))
+* **rubocop:** unused method argument ([](https://github.com/saltstack-formulas/libvirt-formula/commit/da0853a))
+* **rubocop:** use “.zero?” instead of “== 0” ([](https://github.com/saltstack-formulas/libvirt-formula/commit/9108afb))
+* **rubocop:** use // around regular expression ([](https://github.com/saltstack-formulas/libvirt-formula/commit/36f7d3d))
+* **rubocop:** use only ascii symbols in comments ([](https://github.com/saltstack-formulas/libvirt-formula/commit/3edb35c))
+* **rubocop:** use the return of the conditional for variable assignment ([](https://github.com/saltstack-formulas/libvirt-formula/commit/f57d9fb))
+* **rubocop:** when using method_missing, define respond_to_missing? ([](https://github.com/saltstack-formulas/libvirt-formula/commit/b0227e2))
+* **rubocop:** when using method_missing, fall back on super ([](https://github.com/saltstack-formulas/libvirt-formula/commit/db3d181))
+
+
+### Continuous Integration
+
+* merge travis matrix, add `salt-lint` & `rubocop` to `lint` job ([](https://github.com/saltstack-formulas/libvirt-formula/commit/18cef25))
+* merge travis matrix, add `salt-lint` & `rubocop` to `lint` job ([](https://github.com/saltstack-formulas/libvirt-formula/commit/2b3acd6))
+* **travis:** enforce rubocop ([](https://github.com/saltstack-formulas/libvirt-formula/commit/c7c5e57))
+
+
+### Documentation
+
+* **contributing:** remove to use org-level file instead [skip ci] ([](https://github.com/saltstack-formulas/libvirt-formula/commit/a22c209))
+* **readme:** update link to `CONTRIBUTING` [skip ci] ([](https://github.com/saltstack-formulas/libvirt-formula/commit/09d9a0c))
+
 # [3.2.0](https://github.com/saltstack-formulas/libvirt-formula/compare/v3.1.1...v3.2.0) (2019-10-03)
 
 
