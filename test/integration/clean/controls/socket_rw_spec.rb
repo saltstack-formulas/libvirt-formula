@@ -10,5 +10,4 @@ control 'Libvirt read/write socket' do
   describe libvirt_socket_rw do
     it { should_not exist }
   end
-
 end

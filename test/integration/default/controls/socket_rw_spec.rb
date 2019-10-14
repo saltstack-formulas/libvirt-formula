@@ -14,5 +14,4 @@ control 'Libvirt read/write socket' do
     its('group') { should eq 'root' }
     its('mode') { should cmp '0770' }
   end
-
 end

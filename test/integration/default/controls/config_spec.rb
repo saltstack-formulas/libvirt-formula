@@ -41,5 +41,4 @@ control 'Libvirt configuration' do
       its(param) { should eq value }
     end
   end
-
 end

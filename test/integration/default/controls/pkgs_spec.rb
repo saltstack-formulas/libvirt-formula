@@ -16,5 +16,4 @@ control 'Libvirt packages' do
       end
     end
   end
-
 end

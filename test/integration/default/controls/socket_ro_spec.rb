@@ -14,5 +14,4 @@ control 'Libvirt read only socket' do
     its('group') { should eq 'root' }
     its('mode') { should cmp '0777' }
   end
-
 end

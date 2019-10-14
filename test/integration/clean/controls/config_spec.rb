@@ -14,5 +14,4 @@ control 'Libvirt configuration' do
   describe file('/etc/libvirt/libvirtd.conf') do
     it { should_not exist }
   end
-
 end
