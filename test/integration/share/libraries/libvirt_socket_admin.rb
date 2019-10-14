@@ -21,8 +21,14 @@ class LibvirtSocketAdminResource < Inspec.resource(1)
     @file.exist?
   end
 
+  # Proxy all method unknown method calls to
+  # Inspec::Resources::FileResource
   def method_missing(name)
-    @file.send(name)
+    if name
+      @file.send(name)
+    else
+      super
+    end
   end
 
 end
