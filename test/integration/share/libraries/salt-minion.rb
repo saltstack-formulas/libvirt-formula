@@ -1,9 +1,9 @@
 # frozen_string_literal: true
-#
+
 # python_version.rb -- Python version InSpec resources
 # Author: Daniel Dehennin <daniel.dehennin@ac-dijon.fr>
 # Copyright (C) 2019 Pole de Competences Logiciels Libres <eole@ac-dijon.fr>
-#
+
 class SaltMinionResource < Inspec.resource(1)
   name 'salt_minion'
 

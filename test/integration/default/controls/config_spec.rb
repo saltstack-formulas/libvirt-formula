@@ -1,9 +1,8 @@
 # frozen_string_literal: true
-#
+
 # config_spec.rb -- Libvirt configuration InSpec control
 # Author: Daniel Dehennin <daniel.dehennin@ac-dijon.fr>
 # Copyright (C) 2019 Pole de Competences Logiciels Libres <eole@ac-dijon.fr>
-#
 
 params = {
   'listen_tls' => '0',

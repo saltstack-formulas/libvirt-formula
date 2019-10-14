@@ -1,9 +1,9 @@
 # frozen_string_literal: true
-#
+
 # libvirt.rb -- Libvirt InSpec resources
 # Author: Daniel Dehennin <daniel.dehennin@ac-dijon.fr>
 # Copyright (C) 2019 Pole de Competences Logiciels Libres <eole@ac-dijon.fr>
-#
+
 class LibvirtResource < Inspec.resource(1)
   name 'libvirt'
 
@@ -33,7 +33,6 @@ class LibvirtResource < Inspec.resource(1)
   def daemon_config_file
     inspec.file(File.join(daemon_config_dir, 'libvirtd'))
   end
-
 
   def get_packages
     # defaults.yaml
