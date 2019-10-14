@@ -33,7 +33,7 @@ class LibvirtSocketRwResource < Inspec.resource(1)
     end
   end
 
-  def respond_to_missing?(name, include_private)
+  def respond_to_missing?(name, _include_private)
     name == 'exist?'
   end
 end
