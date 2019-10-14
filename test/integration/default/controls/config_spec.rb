@@ -2,7 +2,7 @@
 #
 # config_spec.rb -- Libvirt configuration InSpec control
 # Author: Daniel Dehennin <daniel.dehennin@ac-dijon.fr>
-# Copyright © 2019 Pôle de Compétences Logiciels Libres <eole@ac-dijon.fr>
+# Copyright (C) 2019 Pole de Competences Logiciels Libres <eole@ac-dijon.fr>
 #
 
 params = {
