@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.2](https://github.com/saltstack-formulas/libvirt-formula/compare/v3.2.1...v3.2.2) (2019-10-14)
+
+
+### Bug Fixes
+
+* **rubocop:** resolve `Lint/AmbiguousRegexpLiteral` ([](https://github.com/saltstack-formulas/libvirt-formula/commit/e13085d))
+
 ## [3.2.1](https://github.com/saltstack-formulas/libvirt-formula/compare/v3.2.0...v3.2.1) (2019-10-14)
 
 
