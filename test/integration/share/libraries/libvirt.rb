@@ -1,4 +1,3 @@
-# coding: utf-8
 #
 # libvirt.rb -- Libvirt InSpec resources
 # Author: Daniel Dehennin <daniel.dehennin@ac-dijon.fr>

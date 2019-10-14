@@ -1,4 +1,3 @@
-# coding: utf-8
 #
 # config_spec.rb -- Libvirt configuration InSpec control
 # Author: Daniel Dehennin <daniel.dehennin@ac-dijon.fr>

@@ -1,4 +1,3 @@
-# coding: utf-8
 #
 # libvirt_socket_rw.rb -- Libvirt read/write socket InSpec resources
 # Author: Daniel Dehennin <daniel.dehennin@ac-dijon.fr>

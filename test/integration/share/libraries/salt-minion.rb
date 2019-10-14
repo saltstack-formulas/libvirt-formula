@@ -1,4 +1,3 @@
-# coding: utf-8
 #
 # python_version.rb -- Python version InSpec resources
 # Author: Daniel Dehennin <daniel.dehennin@ac-dijon.fr>

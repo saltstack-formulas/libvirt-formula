@@ -1,4 +1,3 @@
-# coding: utf-8
 #
 # pkgs_spec.rb -- Libvirt packages InSpec control
 # Author: Daniel Dehennin <daniel.dehennin@ac-dijon.fr>

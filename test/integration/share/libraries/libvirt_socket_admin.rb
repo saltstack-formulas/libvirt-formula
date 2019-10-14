@@ -1,4 +1,3 @@
-# coding: utf-8
 #
 # libvirt_socket_admin.rb -- Libvirt admin socket InSpec resources
 # Author: Daniel Dehennin <daniel.dehennin@ac-dijon.fr>

@@ -1,4 +1,3 @@
-# coding: utf-8
 #
 # sockets_ro_spec.rb -- Libvirt read only socket InSpec control
 # Author: Daniel Dehennin <daniel.dehennin@ac-dijon.fr>
