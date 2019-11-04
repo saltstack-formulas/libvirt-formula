@@ -26,15 +26,21 @@
 # NB, must pass the --listen flag to the libvirtd process for this to
 # have any effect.
 #
+# This setting is not required or honoured if using systemd socket
+# activation.
+#
 # It is necessary to setup a CA and issue server certificates before
 # using this capability.
 #
-# This is enabled by default, uncomment this to disable it
+# This is disabled by default, uncomment this to enable it
 {{ get_config('listen_tls', '0') }}
 
 # Listen for unencrypted TCP connections on the public TCP/IP port.
 # NB, must pass the --listen flag to the libvirtd process for this to
 # have any effect.
+#
+# This setting is not required or honoured if using systemd socket
+# activation.
 #
 # Using the TCP socket requires SASL authentication by default. Only
 # SASL mechanisms which support data encryption are allowed. This is
@@ -43,36 +49,37 @@
 # This is disabled by default, uncomment this to enable it.
 {{ get_config('listen_tcp', '0') }}
 
+
+
 # Override the port for accepting secure TLS connections
 # This can be a port number, or service name
+#
+# This setting is not required or honoured if using systemd socket
+# activation with systemd version >= 227
 #
 {{ get_config('tls_port', '16514') }}
 
 # Override the port for accepting insecure TCP connections
 # This can be a port number, or service name
 #
+# This setting is not required or honoured if using systemd socket
+# activation with systemd version >= 227
+#
 {{ get_config('tcp_port', '16509') }}
+
 
 # Override the default configuration which binds to all network
 # interfaces. This can be a numeric IPv4/6 address, or hostname
 #
+# This setting is not required or honoured if using systemd socket
+# activation.
+#
+# If the libvirtd service is started in parallel with network
+# startup (e.g. with systemd), binding to addresses other than
+# the wildcards (0.0.0.0/::) might not be available yet.
+#
 {{ get_config('listen_addr', '0.0.0.0') }}
 
-# Flag toggling mDNS advertizement of the libvirt service.
-#
-# Alternatively can disable for all services on a host by
-# stopping the Avahi daemon
-#
-# This is enabled by default, uncomment this to disable it
-{{ get_config('mdns_adv', '0') }}
-
-# Override the default mDNS advertizement name. This must be
-# unique on the immediate broadcast network.
-#
-# The default is "Virtualization Host HOSTNAME", where HOSTNAME
-# is subsituted for the short hostname of the machine (without domain)
-#
-{{ get_config('mdns_name', '{}') }}
 
 #################################################################
 #
@@ -83,28 +90,50 @@
 # allow a 'trusted' set of users access to management capabilities
 # without becoming root.
 #
+# This setting is not required or honoured if using systemd socket
+# activation.
+#
 # This is restricted to 'root' by default.
-{{ get_config('unix_sock_group', 'libvirt') }}
+{{ get_config('unix_sock_group', 'root') }}
 
 # Set the UNIX socket permissions for the R/O socket. This is used
 # for monitoring VM status only
 #
-# Default allows any user. If setting group ownership may want to
-# restrict this to:
+# This setting is not required or honoured if using systemd socket
+# activation.
+#
+# Default allows any user. If setting group ownership, you may want to
+# restrict this too.
 {{ get_config('unix_sock_ro_perms', '0777') }}
 
 # Set the UNIX socket permissions for the R/W socket. This is used
 # for full management of VMs
 #
+# This setting is not required or honoured if using systemd socket
+# activation.
+#
 # Default allows only root. If PolicyKit is enabled on the socket,
 # the default will change to allow everyone (eg, 0777)
 #
 # If not using PolicyKit and setting group ownership for access
-# control then you may want to relax this to:
+# control, then you may want to relax this too.
 {{ get_config('unix_sock_rw_perms', '0770') }}
 
+# Set the UNIX socket permissions for the admin interface socket.
+#
+# This setting is not required or honoured if using systemd socket
+# activation.
+#
+# Default allows only owner (root), do not change it unless you are
+# sure to whom you are exposing the access to.
+{{ get_config('unix_sock_admin_perms', '0700') }}
+
 # Set the name of the directory in which sockets will be found/created.
-{{ get_config('unix_sock_dir', '/var/run/libvirt') }}
+#
+# This setting is not required or honoured if using systemd socket
+# activation with systemd version >= 227
+#
+{{ get_config('unix_sock_dir', '/run/libvirt') }}
 
 #################################################################
 #
@@ -119,7 +148,7 @@
 #  - sasl: use SASL infrastructure. The actual auth scheme is then
 #          controlled from /etc/sasl2/libvirt.conf. For the TCP
 #          socket only GSSAPI & DIGEST-MD5 mechanisms will be used.
-#          For non-TCP or TLS sockets,  any scheme is allowed.
+#          For non-TCP or TLS sockets, any scheme is allowed.
 #
 #  - polkit: use PolicyKit to authenticate. This is only suitable
 #            for use on the UNIX sockets. The default policy will
@@ -161,9 +190,33 @@
 {{ get_config('auth_tls', 'none') }}
 
 
+# Change the API access control scheme
+#
+# By default an authenticated user is allowed access
+# to all APIs. Access drivers can place restrictions
+# on this. By default the 'nop' driver is enabled,
+# meaning no access control checks are done once a
+# client has authenticated with libvirtd
+#
+{{ get_config('access_drivers', '[ "nop" ]') }}
+
 #################################################################
 #
 # TLS x509 certificate configuration
+#
+
+# Use of TLS requires that x509 certificates be issued. The default locations
+# for the certificate files is as follows:
+#
+#   /etc/pki/CA/cacert.pem - The CA master certificate
+#   /etc/pki/libvirt/servercert.pem - The server certificate signed by cacert.pem
+#   /etc/pki/libvirt/private/serverkey.pem - The server private key
+#
+# It is possible to override the default locations by altering the 'key_file',
+# 'cert_file', and 'ca_file' values and uncommenting them below.
+#
+# NB, overriding the default of one location requires uncommenting and
+# possibly additionally overriding the other settings.
 #
 
 # Override the default server key file path
@@ -184,11 +237,21 @@
 {{ get_config('crl_file', '/etc/pki/CA/crl.pem') }}
 
 
+
 #################################################################
 #
 # Authorization controls
 #
 
+
+# Flag to disable verification of our own server certificates
+#
+# When libvirtd starts it performs some sanity checks against
+# its own certificates.
+#
+# Default is to always run sanity checks. Uncommenting this
+# will disable sanity checks which is not a good idea
+{{ get_config('tls_no_sanity_certificate', '0') }}
 
 # Flag to disable verification of client certificates
 #
@@ -198,10 +261,10 @@
 #
 # Default is to always verify. Uncommenting this will disable
 # verification - make sure an IP whitelist is set
-{{ get_config('tls_no_verify_certificate', '1') }}
+{{ get_config('tls_no_verify_certificate', '0') }}
 
 
-# A whitelist of allowed x509  Distinguished Names
+# A whitelist of allowed x509 Distinguished Names
 # This list may contain wildcards such as
 #
 #    "C=GB,ST=London,L=London,O=Red Hat,CN=*"
@@ -214,7 +277,16 @@
 # By default, no DN's are checked
 {{ get_config('tls_allowed_dn_list', '["DN1", "DN2"]') }}
 
-# A whitelist of allowed SASL usernames. The format for usernames
+
+
+# Override the compile time default TLS priority string. The
+# default is usually "NORMAL" unless overridden at build time.
+# Only set this is it is desired for libvirt to deviate from
+# the global default settings.
+#
+{{ get_config('tls_priority', 'NORMAL') }}
+
+# A whitelist of allowed SASL usernames. The format for username
 # depends on the SASL authentication mechanism. Kerberos usernames
 # look like username@REALM
 #
@@ -230,6 +302,7 @@
 # By default, no Username's are checked
 {{ get_config('sasl_allowed_username_list', '["joe@example.com", "fred@example.com"]') }}
 
+
 #################################################################
 #
 # Processing controls
@@ -237,89 +310,159 @@
 
 # The maximum number of concurrent client connections to allow
 # over all sockets combined.
-{{ get_config('max_clients', '20') }}
+{{ get_config('max_clients', '5000') }}
 
+# The maximum length of queue of connections waiting to be
+# accepted by the daemon. Note, that some protocols supporting
+# retransmission may obey this so that a later reattempt at
+# connection succeeds.
+{{ get_config('max_queued_clients', '20') }}
+
+# The maximum length of queue of accepted but not yet
+# authenticated clients. The default value is 20. Set this to
+# zero to turn this feature off.
+{{ get_config('max_anonymous_clients', '20') }}
 
 # The minimum limit sets the number of workers to start up
 # initially. If the number of active clients exceeds this,
-# then more threads are spawned, upto max_workers limit.
+# then more threads are spawned, up to max_workers limit.
 # Typically you'd want max_workers to equal maximum number
 # of clients allowed
 {{ get_config('min_workers', '5') }}
 {{ get_config('max_workers', '20') }}
 
-# Total global limit on concurrent RPC calls. Should be
-# at least as large as max_workers. Beyond this, RPC requests
-# will be read into memory and queued. This directly impact
-# memory usage, currently each request requires 256 KB of
-# memory. So by default upto 5 MB of memory is used
-#
-# XXX this isn't actually enforced yet, only the per-client
-# limit is used so far
-{{ get_config('max_requests', '20') }}
+
+# The number of priority workers. If all workers from above
+# pool are stuck, some calls marked as high priority
+# (notably domainDestroy) can be executed in this pool.
+{{ get_config('prio_workers', '5') }}
 
 # Limit on concurrent requests from a single client
 # connection. To avoid one client monopolizing the server
-# this should be a small fraction of the global max_requests
-# and max_workers parameter
+# this should be a small fraction of the global max_workers
+# parameter.
 {{ get_config('max_client_requests', '5') }}
+
+# Same processing controls, but this time for the admin interface.
+# For description of each option, be so kind to scroll few lines
+# upwards.
+
+{{ get_config('admin_min_workers', '1') }}
+{{ get_config('admin_max_workers', '5') }}
+{{ get_config('admin_max_clients', '5') }}
+{{ get_config('admin_max_queued_clients', '5') }}
+{{ get_config('admin_max_client_requests', '5') }}
 
 #################################################################
 #
 # Logging controls
 #
 
-# Logging level: 4 errors, 3 warnings, 2 informations, 1 debug
+# Logging level: 4 errors, 3 warnings, 2 information, 1 debug
 # basically 1 will log everything possible
+#
+# WARNING: USE OF THIS IS STRONGLY DISCOURAGED.
+#
+# WARNING: It outputs too much information to practically read.
+# WARNING: The "log_filters" setting is recommended instead.
+#
+# WARNING: Journald applies rate limiting of messages and so libvirt
+# WARNING: will limit "log_level" to only allow values 3 or 4 if
+# WARNING: journald is the current output.
+#
+# WARNING: USE OF THIS IS STRONGLY DISCOURAGED.
 {{ get_config('log_level', '3') }}
 
 # Logging filters:
 # A filter allows to select a different logging level for a given category
-# of logs
-# The format for a filter is:
-#    x:name
-#      where name is a match string e.g. remote or qemu
-# the x prefix is the minimal level where matching messages should be logged
+# of logs. The format for a filter is one of:
+#
+#    level:match
+#    level:+match
+#
+# where 'match' is a string which is matched against the category
+# given in the VIR_LOG_INIT() at the top of each libvirt source
+# file, e.g., "remote", "qemu", or "util.json". The 'match' in the
+# filter matches using shell wildcard syntax (see 'man glob(7)').
+# The 'match' is always treated as a substring match. IOW a match
+# string 'foo' is equivalent to '*foo*'.
+#
+# If 'match' contains the optional "+" prefix, it tells libvirt
+# to log stack trace for each message matching name.
+#
+# 'level' is the minimal level where matching messages should
+#  be logged:
+#
 #    1: DEBUG
 #    2: INFO
 #    3: WARNING
 #    4: ERROR
 #
-# Multiple filter can be defined in a single @filters, they just need to be
-# separated by spaces.
+# Multiple filters can be defined in a single @log_filters, they just need
+# to be separated by spaces. Note that libvirt performs "first" match, i.e.
+# if there are concurrent filters, the first one that matches will be applied,
+# given the order in @log_filters.
 #
-# e.g:
-# log_filters="3:remote 4:event"
-# to only get warning or errors from the remote layer and only errors from
-# the event layer.
-{{ get_config('log_filters', '"3:remote 4:event"') }}
+# A typical need is to capture information from a hypervisor driver,
+# public API entrypoints and some of the utility code. Some utility
+# code is very verbose and is generally not desired. Taking the QEMU
+# hypervisor as an example, a suitable filter string for debugging
+# might be to turn off object, json & event logging, but enable the
+# rest of the util code:
+#
+{{ get_config('log_filters', '"1:qemu 1:libvirt 4:object 4:json 4:event 1:util"') }}
 
 # Logging outputs:
-# An output is one of the places to save logging informations
+# An output is one of the places to save logging information
 # The format for an output can be:
-#    x:stderr
+#    level:stderr
 #      output goes to stderr
-#    x:syslog:name
+#    level:syslog:name
 #      use syslog for the output and use the given name as the ident
-#    x:file:file_path
+#    level:file:file_path
 #      output to a file, with the given filepath
-# In all case the x prefix is the minimal level, acting as a filter
+#    level:journald
+#      output to journald logging system
+# In all cases 'level' is the minimal priority, acting as a filter
 #    1: DEBUG
 #    2: INFO
 #    3: WARNING
 #    4: ERROR
 #
-# Multiple output can be defined, they just need to be separated by spaces.
-# e.g.:
-# log_outputs="3:syslog:libvirtd"
-# to log all warnings and errors to syslog under the libvirtd ident
+# Multiple outputs can be defined, they just need to be separated by spaces.
+# e.g. to log all warnings and errors to syslog under the libvirtd ident:
 {{ get_config('log_outputs', '"3:syslog:libvirtd"') }}
 
+
+##################################################################
+#
+# Auditing
+#
+# This setting allows usage of the auditing subsystem to be altered:
+#
+#   audit_level == 0  -> disable all auditing
+#   audit_level == 1  -> enable auditing, only if enabled on host (default)
+#   audit_level == 2  -> enable auditing, and exit if disabled on host
+#
+{{ get_config('audit_level', '1') }}
+#
+# If set to 1, then audit messages will also be sent
+# via libvirt logging infrastructure. Defaults to 0
+#
+{{ get_config('audit_logging', '0') }}
+
+###################################################################
 # UUID of the host:
-# Provide the UUID of the host here in case the command
-# 'dmidecode -s system-uuid' does not provide a valid uuid. In case
-# 'dmidecode' does not provide a valid UUID and none is provided here, a
-# temporary UUID will be generated.
+# Host UUID is read from one of the sources specified in host_uuid_source.
+#
+# - 'smbios': fetch the UUID from 'dmidecode -s system-uuid'
+# - 'machine-id': fetch the UUID from /etc/machine-id
+#
+# The host_uuid_source default is 'smbios'. If 'dmidecode' does not provide
+# a valid UUID a temporary UUID will be generated.
+#
+# Another option is to specify host UUID in host_uuid.
+#
 # Keep the format of the example UUID below. UUID must not have all digits
 # be the same.
 
@@ -327,5 +470,45 @@
 # it with the output of the 'uuidgen' command and then
 # uncomment this entry
 {{ get_config('host_uuid', '00000000-0000-0000-0000-000000000000') }}
+{{ get_config('host_uuid_source', 'smbios') }}
 
+###################################################################
+# Keepalive protocol:
+# This allows libvirtd to detect broken client connections or even
+# dead clients.  A keepalive message is sent to a client after
+# keepalive_interval seconds of inactivity to check if the client is
+# still responding; keepalive_count is a maximum number of keepalive
+# messages that are allowed to be sent to the client without getting
+# any response before the connection is considered broken.  In other
+# words, the connection is automatically closed approximately after
+# keepalive_interval * (keepalive_count + 1) seconds since the last
+# message received from the client.  If keepalive_interval is set to
+# -1, libvirtd will never send keepalive requests; however clients
+# can still send them and the daemon will send responses.  When
+# keepalive_count is set to 0, connections will be automatically
+# closed after keepalive_interval seconds of inactivity without
+# sending any keepalive messages.
+#
+{{ get_config('keepalive_interval', '5') }}
+{{ get_config('keepalive_count', '5') }}
 
+#
+# These configuration options are no longer used.  There is no way to
+# restrict such clients from connecting since they first need to
+# connect in order to ask for keepalive.
+#
+{{ get_config('keepalive_required', '0') }}
+{{ get_config('admin_keepalive_required', '0') }}
+
+# Keepalive settings for the admin interface
+{{ get_config('admin_keepalive_interval', '5') }}
+{{ get_config('admin_keepalive_count', '5') }}
+
+###################################################################
+# Open vSwitch:
+# This allows to specify a timeout for openvswitch calls made by
+# libvirt. The ovs-vsctl utility is used for the configuration and
+# its timeout option is set by default to 5 seconds to avoid
+# potential infinite waits blocking libvirt.
+#
+{{ get_config('ovs_timeout', '5') }}
