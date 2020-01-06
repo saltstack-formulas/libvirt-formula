@@ -1,5 +1,23 @@
 # Changelog
 
+# [3.4.0](https://github.com/saltstack-formulas/libvirt-formula/compare/v3.3.0...v3.4.0) (2020-01-06)
+
+
+### Continuous Integration
+
+* **gemfile:** restrict `train` gem version until upstream fix [skip ci] ([161d389](https://github.com/saltstack-formulas/libvirt-formula/commit/161d389476cd36b0158c7cc3628ec43786dc0757))
+* **travis:** apply changes from build config validation [skip ci] ([ad5156d](https://github.com/saltstack-formulas/libvirt-formula/commit/ad5156d8ee001dc904ca750cde0c60d585e2a94e))
+* **travis:** opt-in to `dpl v2` to complete build config validation [skip ci] ([0935dbe](https://github.com/saltstack-formulas/libvirt-formula/commit/0935dbe90524de39d31a371a25b96c86ba22e747))
+* **travis:** quote pathspecs used with `git ls-files` [skip ci] ([8c8ff8e](https://github.com/saltstack-formulas/libvirt-formula/commit/8c8ff8ee28be27d81eb76e3247f3de8c69ef4d46))
+* **travis:** run `shellcheck` during lint job [skip ci] ([b02ff9d](https://github.com/saltstack-formulas/libvirt-formula/commit/b02ff9dd06c8b81afd40b0e15d58c672b6c6d7b5))
+* **travis:** use `major.minor` for `semantic-release` version [skip ci] ([946fa1f](https://github.com/saltstack-formulas/libvirt-formula/commit/946fa1fab41647ed92404da7bbca1e21df4b41b3))
+* **travis:** use build config validation (beta) [skip ci] ([1190505](https://github.com/saltstack-formulas/libvirt-formula/commit/1190505b8859789a431d7e09e50ef0dbedd2b6f1))
+
+
+### Features
+
+* **systemd:** check sockets created by systemd ([60a4177](https://github.com/saltstack-formulas/libvirt-formula/commit/60a417722d4eb0ac94588c0d22d8feeea671f86a))
+
 # [3.3.0](https://github.com/saltstack-formulas/libvirt-formula/compare/v3.2.2...v3.3.0) (2019-11-04)
 
 
