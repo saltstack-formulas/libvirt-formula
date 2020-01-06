@@ -15,6 +15,31 @@ class LibvirtSocketRwResource < Inspec.resource(1)
 
   def initialize
     @file = inspec.file('/var/run/libvirt/libvirt-sock')
+    @systemd_status = inspec.systemd_config('libvirtd.socket')
+  end
+
+  def config_owner
+    if @systemd_status.active?
+      @systemd_status.config('SocketUser') || 'root'
+    else
+      'root'
+    end
+  end
+
+  def config_group
+    if @systemd_status.active?
+      @systemd_status.config('SocketGroup') || 'root'
+    else
+      'root'
+    end
+  end
+
+  def config_mode
+    if @systemd_status.active?
+      @systemd_status.config('SocketMode') || '0666'
+    else
+      '0770'
+    end
   end
 
   # We could not inherit from Inspec::Resources::FileResource

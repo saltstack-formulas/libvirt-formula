@@ -10,8 +10,8 @@ control 'Libvirt read only socket' do
   describe libvirt_socket_ro do
     it { should exist }
     its('type') { should eq :socket }
-    its('owner') { should eq 'root' }
-    its('group') { should eq 'root' }
-    its('mode') { should cmp '0777' }
+    its('owner') { should eq libvirt_socket_ro.config_owner }
+    its('group') { should eq libvirt_socket_ro.config_group }
+    its('mode') { should cmp libvirt_socket_ro.config_mode }
   end
 end

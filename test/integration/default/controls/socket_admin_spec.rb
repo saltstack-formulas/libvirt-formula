@@ -10,8 +10,8 @@ control 'Libvirt admin socket' do
   describe libvirt_socket_admin do
     it { should exist }
     its('type') { should eq :socket }
-    its('owner') { should eq 'root' }
-    its('group') { should eq 'root' }
-    its('mode') { should cmp '0700' }
+    its('owner') { should eq libvirt_socket_admin.config_owner }
+    its('group') { should eq libvirt_socket_admin.config_group }
+    its('mode') { should cmp libvirt_socket_admin.config_mode }
   end
 end
