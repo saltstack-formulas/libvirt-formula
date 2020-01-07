@@ -50,6 +50,9 @@ class LibvirtPackagesResource < Inspec.resource(1)
     when 'centos'
       build_centos_packages
 
+    when 'ubuntu'
+      build_ubuntu_packages
+
     else
       {}
     end
@@ -113,6 +116,15 @@ class LibvirtPackagesResource < Inspec.resource(1)
     else
       # Only python3 since CentOS 8
       { 'python' => ['python3-libvirt'] }
+    end
+  end
+
+  def build_ubuntu_packages
+    case inspec.os[:release]
+    when /^16/
+      { 'libvirt' => ['libvirt-bin'] }
+    else
+      {}
     end
   end
 end
