@@ -11,10 +11,6 @@
 # osfingermap: {}
 ---
 ## os: Ubuntu
-# Trusty
-Ubuntu-14.04:
-  libvirt_pkg: libvirt-bin
-  libvirt_service: libvirt-bin
 # Xenial
 Ubuntu-16.04:
   libvirt_pkg: libvirt-bin
