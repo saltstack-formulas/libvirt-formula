@@ -2,6 +2,22 @@
 Changelog
 =========
 
+`3.5.0 <https://github.com/saltstack-formulas/libvirt-formula/compare/v3.4.0...v3.5.0>`_ (2020-01-07)
+---------------------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **centos:** centos 8 is full python3 (\ `54c82bb <https://github.com/saltstack-formulas/libvirt-formula/commit/54c82bb66f9c9556767d501d7ac425e8e516ba6d>`_\ )
+
+Tests
+^^^^^
+
+
+* **inspec:** libvirt resource library is too big (\ `91c0a44 <https://github.com/saltstack-formulas/libvirt-formula/commit/91c0a44fa0b9df5bacd722fd416764bae5bd5076>`_\ )
+* **inspec:** support different packages between CentOS 8 and 7 (\ `ec3b938 <https://github.com/saltstack-formulas/libvirt-formula/commit/ec3b9385d7903544f95847ee0d8aa0248b57fbce>`_\ )
+
 `3.4.0 <https://github.com/saltstack-formulas/libvirt-formula/compare/v3.3.0...v3.4.0>`_ (2020-01-06)
 ---------------------------------------------------------------------------------------------------------
 
