@@ -15,4 +15,5 @@ Fedora:
   python3_pkg: python3-libvirt
 
 CentOS:
-  python3_pkg: ~
+  python2_pkg: ~
+  python3_pkg: python3-libvirt

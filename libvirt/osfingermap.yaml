@@ -30,3 +30,8 @@ Ubuntu-14.04:
 Ubuntu-16.04:
   libvirt_pkg: libvirt-bin
   libvirt_service: libvirt-bin
+
+## os: CentOS
+CentOS Linux-7:
+  python2_pkg: libvirt-python
+  python3_pkg: ~
