@@ -23,10 +23,11 @@ class LibvirtPackagesResource < Inspec.resource(1)
     # defaults.yaml
     packages = build_default_packages
 
-    packages.merge!(build_overwrite_packages)
+    packages.merge!(build_os_family_packages)
+    packages.merge!(build_os_name_packages)
   end
 
-  def build_overwrite_packages
+  def build_os_family_packages
     # osfamily.yaml / osmap.yaml
     case inspec.os[:family]
     when 'debian'
@@ -37,6 +38,17 @@ class LibvirtPackagesResource < Inspec.resource(1)
 
     when 'suse'
       build_suse_packages
+
+    else
+      {}
+    end
+  end
+
+  def build_os_name_packages
+    # osfamily.yaml / osmap.yaml
+    case inspec.os[:name]
+    when 'centos'
+      build_centos_packages
 
     else
       {}
@@ -88,5 +100,19 @@ class LibvirtPackagesResource < Inspec.resource(1)
                     ['python2-libvirt-python']
                   end
     }
+  end
+
+  def build_centos_packages
+    case inspec.os[:release]
+    when /^7/
+      if inspec.salt_minion.python3?
+        { 'python' => [] }
+      else
+        { 'python' => ['libvirt-python'] }
+      end
+    else
+      # Only python3 since CentOS 8
+      { 'python' => ['python3-libvirt'] }
+    end
   end
 end
