@@ -1,5 +1,16 @@
 # Changelog
 
+# [3.6.0](https://github.com/saltstack-formulas/libvirt-formula/compare/v3.5.0...v3.6.0) (2020-01-07)
+
+
+### Features
+
+* **debian:** remove support for very old versions ([7a9dc90](https://github.com/saltstack-formulas/libvirt-formula/commit/7a9dc909742bd7cd6c9b0621777892d341e27333))
+* **inspec:** older Ubuntu use “libvirt-bin” as package name ([d1f57fd](https://github.com/saltstack-formulas/libvirt-formula/commit/d1f57fd07f9890354108bcab72ceb72fcee802e6))
+* **inspec:** older Ubuntu use “libvirt-bin” as service name ([c2885e3](https://github.com/saltstack-formulas/libvirt-formula/commit/c2885e3ac789d869984d8f2825dd57e238624ca9))
+* **inspec:** skip admin socket on unsupported platforms ([4fb5725](https://github.com/saltstack-formulas/libvirt-formula/commit/4fb572574d849a245a11d5480c53ef3a9a06f0be))
+* **ubuntu:** remove support for very old versions ([d37597e](https://github.com/saltstack-formulas/libvirt-formula/commit/d37597ef2d2b602e4ad8a39622bb7e076e60cd12))
+
 # [3.5.0](https://github.com/saltstack-formulas/libvirt-formula/compare/v3.4.0...v3.5.0) (2020-01-07)
 
 
