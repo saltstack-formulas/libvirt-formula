@@ -14,8 +14,24 @@ class LibvirtSocketAdminResource < Inspec.resource(1)
   supports platform_name: 'opensuse'
 
   def initialize
+    if skipped_platform?
+      raise Inspec::Exceptions::ResourceSkipped, 'No admin socket on this platform'
+    end
+
     @file = inspec.file('/var/run/libvirt/libvirt-admin-sock')
     @systemd_status = inspec.systemd_config('libvirtd-admin.socket')
+  end
+
+  def skipped_platform?
+    skipped_debian? || skipped_ubuntu?
+  end
+
+  def skipped_debian?
+    inspec.os[:name] == 'debian' && inspec.os[:release].match(/^8/)
+  end
+
+  def skipped_ubuntu?
+    inspec.os[:name] == 'ubuntu' && inspec.os[:release].match(/^16/)
   end
 
   def config_owner

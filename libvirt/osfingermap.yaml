@@ -10,22 +10,7 @@
 # you will need to provide at least an empty dict in this file, e.g.
 # osfingermap: {}
 ---
-## os: Debian
-# Squeeze
-Debian-6:
-  libvirt_pkg: libvirt-bin
-  libvirt_service: libvirt-bin
-
-# Jessie
-Debian-8:
-  libvirt_pkg: libvirt-bin
-
-
 ## os: Ubuntu
-# Trusty
-Ubuntu-14.04:
-  libvirt_pkg: libvirt-bin
-  libvirt_service: libvirt-bin
 # Xenial
 Ubuntu-16.04:
   libvirt_pkg: libvirt-bin

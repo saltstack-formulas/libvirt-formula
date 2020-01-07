@@ -32,6 +32,26 @@ class LibvirtResource < Inspec.resource(1)
   end
 
   def daemon_config_file
-    inspec.file(File.join(daemon_config_dir, 'libvirtd'))
+    inspec.file(File.join(daemon_config_dir, service_name))
+  end
+
+  def service_name
+    case inspec.os[:name]
+    when 'ubuntu'
+      service_name_ubuntu
+
+    else
+      'libvirtd'
+    end
+  end
+
+  def service_name_ubuntu
+    case inspec.os[:release]
+    when /^16/
+      'libvirt-bin'
+
+    else
+      'libvirtd'
+    end
   end
 end
