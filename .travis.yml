@@ -87,7 +87,7 @@ jobs:
     # - env: INSTANCE=default-centos-6-2017-7-py2
     # - env: INSTANCE=default-fedora-30-2017-7-py2
     # - env: INSTANCE=default-opensuse-leap-151-2017-7-py2
-    - env: INSTANCE=default-amazonlinux-1-2017-7-py2
+    # - env: INSTANCE=default-amazonlinux-1-2017-7-py2
     # - env: INSTANCE=default-arch-base-latest-2017-7-py2
 
     ## Define the release stage that runs `semantic-release`
