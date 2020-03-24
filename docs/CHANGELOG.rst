@@ -2,6 +2,33 @@
 Changelog
 =========
 
+`3.7.0 <https://github.com/saltstack-formulas/libvirt-formula/compare/v3.6.0...v3.7.0>`_ (2020-03-24)
+---------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **libtofs:** “files_switch” mess up the variable exported by “map.jinja” [skip ci] (\ `fd277ec <https://github.com/saltstack-formulas/libvirt-formula/commit/fd277ec6546655f0c0082fb773b6f62f77e4adf4>`_\ )
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* workaround issues with newly introduced ``amazonlinux-1`` [skip ci] (\ `9299b03 <https://github.com/saltstack-formulas/libvirt-formula/commit/9299b035a511edea637b508f7c83b79a83ecfaf1>`_\ )
+* **kitchen:** avoid using bootstrap for ``master`` instances [skip ci] (\ `58709f6 <https://github.com/saltstack-formulas/libvirt-formula/commit/58709f6a9b01fc0ba53a8aa84128a63db2a1cb95>`_\ )
+* **travis:** update matrix after recent platform fixes (\ `a6dd1d3 <https://github.com/saltstack-formulas/libvirt-formula/commit/a6dd1d31e2bc1f4b4fc3fd28d6d293a2bedae62b>`_\ ), closes `#64 <https://github.com/saltstack-formulas/libvirt-formula/issues/64>`_ `#66 <https://github.com/saltstack-formulas/libvirt-formula/issues/66>`_ `#67 <https://github.com/saltstack-formulas/libvirt-formula/issues/67>`_ `#68 <https://github.com/saltstack-formulas/libvirt-formula/issues/68>`_
+
+Features
+^^^^^^^^
+
+
+* **map.jinja:** ``defaults.yaml`` must be under ``parameters/`` (\ `3ca19bc <https://github.com/saltstack-formulas/libvirt-formula/commit/3ca19bc63b9a631690515df46e07ca4bc7d92807>`_\ )
+* **map.jinja:** load a configurable list of YAML files (\ `ce1782c <https://github.com/saltstack-formulas/libvirt-formula/commit/ce1782cab01e271993fb45df3e98928ae58e7b35>`_\ )
+* **map.jinja:** split ``osfamilymap.yaml`` under ``parameters/os_family/`` (\ `e82d184 <https://github.com/saltstack-formulas/libvirt-formula/commit/e82d184a77d03725c5afcf0d5f73ba95a87875df>`_\ )
+* **map.jinja:** split ``osfingermap.yaml`` under ``parameters/osfinger/`` (\ `365f711 <https://github.com/saltstack-formulas/libvirt-formula/commit/365f71176a231d992426b79705d6c0ee5ede8c68>`_\ )
+* **map.jinja:** split ``osmap.yaml`` under ``parameters/os/`` (\ `4255397 <https://github.com/saltstack-formulas/libvirt-formula/commit/4255397e40466ef4782911989ab671bed160fcfa>`_\ )
+
 `3.6.0 <https://github.com/saltstack-formulas/libvirt-formula/compare/v3.5.0...v3.6.0>`_ (2020-01-07)
 ---------------------------------------------------------------------------------------------------------
 
