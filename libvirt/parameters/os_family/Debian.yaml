@@ -1,0 +1,24 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+#
+# Setup variables specific to salt['config.get']('os_family') == Debian.
+# You just need to add the key:values for this `os_family` that differ
+# from `defaults.yaml` + `<osarch>.yaml`.
+#
+# If you do not need to provide defaults via the `os_family` config,
+# you can remove this file or provide at least an empty dict, e.g.
+# values: {}
+---
+values:
+  libvirt_pkg: libvirt-daemon-system
+  libvirt_service: libvirtd
+  qemu_pkg: qemu-kvm
+  python2_pkg: python-libvirt
+  python3_pkg: python3-libvirt
+  extra_pkgs:
+    - libguestfs0
+    - libguestfs-tools
+    - gnutls-bin
+    - virt-top
+  daemon_config_path: /etc/default
+...
