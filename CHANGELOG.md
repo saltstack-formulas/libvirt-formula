@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.7.1](https://github.com/saltstack-formulas/libvirt-formula/compare/v3.7.0...v3.7.1) (2020-03-25)
+
+
+### Code Refactoring
+
+* **libsaltcli:** use `libsaltcli` library to improve readability ([ad923ee](https://github.com/saltstack-formulas/libvirt-formula/commit/ad923eefebec10a64f9943e230dda28cc3241c7d))
+
 # [3.7.0](https://github.com/saltstack-formulas/libvirt-formula/compare/v3.6.0...v3.7.0) (2020-03-24)
 
 
