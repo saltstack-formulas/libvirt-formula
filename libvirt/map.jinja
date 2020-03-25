@@ -3,6 +3,7 @@
 
 {#- Get the `tplroot` from `tpldir` #}
 {%- set tplroot = tpldir.split('/')[0] %}
+{%- from tplroot ~ "/libsaltcli.jinja" import cli with context %}
 
 {#- Where to lookup parameters source files #}
 {%- set map_sources_dir = tplroot | path_join('parameters') %}
@@ -31,22 +32,17 @@
 {#- load configuration values used in `config.get` merging strategies #}
 {%- set _config = {'stack': default_settings.get('values', {}),
                    'merge_strategy': salt['config.get'](tplroot ~ ':strategy', None),
-                   'merge_lists': salt['config.get'](tplroot ~ ':merge_lists', False),
-                   'cli': salt['config.get']('__cli'),
-                   'root_dir': salt['config.get']('root_dir')
+                   'merge_lists': salt['config.get'](tplroot ~ ':merge_lists', False)
                   } %}
 
-{#- `config.get` merge option works only for `minion` or local `salt-call` #}
-{%- if _config['cli'] == 'salt-minion'
-       or (_config['cli'] == 'salt-call' and not _config['root_dir'].endswith('/running_data')) %}
+{#- the `config.get` merge option only works for `minion` or `local` salt command types #}
+{%- if cli in ['minion', 'local'] %}
   {%- do _config.update({'merge_opt': {'merge': _config['merge_strategy']},
                          'merge_msg': ", merge: strategy='" ~ _config['merge_strategy'] ~ "'"}) %}
+{#- the `config.get` merge option is not available for `ssh` or `unknown` salt command types #}
 {%- else %}
-  {#- no `config.get` merge option for `salt-ssh` or `unknown` cli #}
   {%- if _config['merge_strategy'] %}
-    {%- do salt['log.error']("map.jinja: the 'merge' option of 'config.get' is skipped with salt cli '"
-                             ~ _config['cli'] | replace('call', 'ssh') | default('unknown', True) ~ "'")
-      %}
+    {%- do salt['log.error']("map.jinja: the 'merge' option of 'config.get' is skipped when the salt command type is '" ~ cli ~ "'") %}
   {%- endif %}
   {%- do _config.update({'merge_opt': {},
                          'merge_msg': ''}) %}
