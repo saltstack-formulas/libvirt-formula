@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`3.7.2 <https://github.com/saltstack-formulas/libvirt-formula/compare/v3.7.1...v3.7.2>`_ (2020-03-26)
+---------------------------------------------------------------------------------------------------------
+
+Code Refactoring
+^^^^^^^^^^^^^^^^
+
+
+* **libsaltcli:** use ``ssh`` matching improvement (\ ``__master_opts__``\ ) (\ `c800fd1 <https://github.com/saltstack-formulas/libvirt-formula/commit/c800fd117f2f5c1dc97cfc1566f4d6270d16801c>`_\ ), closes `/github.com/saltstack-formulas/libvirt-formula/pull/71#issuecomment-604427395 <https://github.com//github.com/saltstack-formulas/libvirt-formula/pull/71/issues/issuecomment-604427395>`_
+
 `3.7.1 <https://github.com/saltstack-formulas/libvirt-formula/compare/v3.7.0...v3.7.1>`_ (2020-03-25)
 ---------------------------------------------------------------------------------------------------------
 
