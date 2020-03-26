@@ -5,7 +5,7 @@
 {%- if salt['config.get']('__cli') == 'salt-minion' %}
 {%-   set cli = 'minion' %}
 {%- elif salt['config.get']('__cli') == 'salt-call' %}
-{%-   if salt['config.get']('root_dir').endswith('/running_data') %}
+{%-   if opts.get('__master_opts__', {}).get('__cli') == 'salt-ssh' %}
 {%-     set cli = 'ssh' %}
 {%-   else %}
 {%-     set cli = 'local' %}
