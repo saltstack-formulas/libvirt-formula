@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.7.3](https://github.com/saltstack-formulas/libvirt-formula/compare/v3.7.2...v3.7.3) (2020-03-27)
+
+
+### Code Refactoring
+
+* **libsaltcli:** use the `opts` dict throughout ([94e1bde](https://github.com/saltstack-formulas/libvirt-formula/commit/94e1bde4038373efd1c3bb5db1bb5717b1a8d067))
+
 ## [3.7.2](https://github.com/saltstack-formulas/libvirt-formula/compare/v3.7.1...v3.7.2) (2020-03-26)
 
 
