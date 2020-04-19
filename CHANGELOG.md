@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.7.4](https://github.com/saltstack-formulas/libvirt-formula/compare/v3.7.3...v3.7.4) (2020-04-19)
+
+
+### Bug Fixes
+
+* **libsaltcli:** update `salt-ssh` detection for `enable_ssh_minions` ([7bfe4b4](https://github.com/saltstack-formulas/libvirt-formula/commit/7bfe4b46df44082580bcc3cb676e9a33f6d99f4d))
+
 ## [3.7.3](https://github.com/saltstack-formulas/libvirt-formula/compare/v3.7.2...v3.7.3) (2020-03-27)
 
 
