@@ -17,6 +17,7 @@ libvirt
 Formula to setup and configure ``libvirt``.
 
 .. contents:: **Table of Contents**
+   :depth: 1
 
 General notes
 -------------
@@ -170,7 +171,7 @@ e.g. ``debian-9-2019-2-py3``.
 ``bin/kitchen converge``
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Creates the docker instance and runs the ``template`` main state, ready for testing.
+Creates the docker instance and runs the ``libvirt`` main state, ready for testing.
 
 ``bin/kitchen verify``
 ^^^^^^^^^^^^^^^^^^^^^^
