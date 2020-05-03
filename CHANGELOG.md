@@ -1,5 +1,19 @@
 # Changelog
 
+## [3.7.5](https://github.com/saltstack-formulas/libvirt-formula/compare/v3.7.4...v3.7.5) (2020-05-03)
+
+
+### Continuous Integration
+
+* **gemfile.lock:** add to repo with updated `Gemfile` [skip ci] ([5bf3cd7](https://github.com/saltstack-formulas/libvirt-formula/commit/5bf3cd76a315d0a8c22d34d29e2c1afae0c78c59))
+* **kitchen+travis:** adjust matrix to add `3000.2` & remove `2018.3` ([8fb7839](https://github.com/saltstack-formulas/libvirt-formula/commit/8fb7839c16f6fdda0302ea5b00d19d9e1d4f638e))
+* **kitchen+travis:** remove `master-py2-arch-base-latest` [skip ci] ([c70f16c](https://github.com/saltstack-formulas/libvirt-formula/commit/c70f16cd13d3613e3e58b903b23db5fc3199e20f))
+
+
+### Documentation
+
+* **readme:** fix `template` to `libvirt` under `bin/kitchen converge` [skip ci] ([cfde6d9](https://github.com/saltstack-formulas/libvirt-formula/commit/cfde6d91ce79b158bcb701afcddaaa14188a0827))
+
 ## [3.7.4](https://github.com/saltstack-formulas/libvirt-formula/compare/v3.7.3...v3.7.4) (2020-04-19)
 
 
