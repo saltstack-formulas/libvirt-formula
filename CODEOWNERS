@@ -4,8 +4,9 @@
 # FILE PATTERN                              OWNER(S)
 *                                           @baby-gnu
 
-# SECTION: Owner(s) for files related to `semantic-release`
+# SECTION: Owner(s) for files/directories related to `semantic-release`
 # FILE PATTERN                              OWNER(S)
+/.github/workflows/                         @saltstack-formulas/ssf
 /bin/kitchen                                @saltstack-formulas/ssf
 /docs/TOFS_pattern.rst                      @saltstack-formulas/ssf
 /libvirt/libsaltcli.jinja                   @saltstack-formulas/ssf
