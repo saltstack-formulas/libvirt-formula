@@ -2,6 +2,34 @@
 Changelog
 =========
 
+`3.7.6 <https://github.com/saltstack-formulas/libvirt-formula/compare/v3.7.5...v3.7.6>`_ (2020-07-10)
+---------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **libtofs:** remove trailing coma on macro parameters list (\ `36589e4 <https://github.com/saltstack-formulas/libvirt-formula/commit/36589e466d48ba28eb96627a88d0c5a53c7f6351>`_\ )
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **kitchen:** use ``saltimages`` Docker Hub where available [skip ci] (\ `086ea4c <https://github.com/saltstack-formulas/libvirt-formula/commit/086ea4c404280cbb0124253f775e786ae95b2d66>`_\ )
+* **kitchen+travis:** add new platforms [skip ci] (\ `f2ccc51 <https://github.com/saltstack-formulas/libvirt-formula/commit/f2ccc5136a543003719831f38574b9d43ab95da3>`_\ )
+* **kitchen+travis:** adjust matrix to add ``3000.3`` [skip ci] (\ `95562e3 <https://github.com/saltstack-formulas/libvirt-formula/commit/95562e3258c03a61a0ef77704d2b93ab1fc5b4b0>`_\ )
+* **travis:** add notifications => zulip [skip ci] (\ `88b4bee <https://github.com/saltstack-formulas/libvirt-formula/commit/88b4beef40438d875d12ef69d69c4833908e6887>`_\ )
+* **workflows/commitlint:** add to repo [skip ci] (\ `7a19e61 <https://github.com/saltstack-formulas/libvirt-formula/commit/7a19e61bcced035520b14ef5c9a7445f9d026048>`_\ )
+
+Styles
+^^^^^^
+
+
+* **libtofs:** it's prettier with the Jinja open mark not indented (\ `7411517 <https://github.com/saltstack-formulas/libvirt-formula/commit/741151734dbc77fdff9fc20cab3c5fdbeac7e28c>`_\ )
+* **libtofs:** use Black-inspired Jinja formatting (\ `5f27ff8 <https://github.com/saltstack-formulas/libvirt-formula/commit/5f27ff87a057acc8bad579ee89947e1604db5a6f>`_\ ), closes `/github.com/saltstack-formulas/libvirt-formula/pull/77#issuecomment-637838178 <https://github.com//github.com/saltstack-formulas/libvirt-formula/pull/77/issues/issuecomment-637838178>`_
+* **map:** use Black-inspired Jinja formatting (\ `d05e403 <https://github.com/saltstack-formulas/libvirt-formula/commit/d05e4039091b7e021c29cc201296ac57f5f10515>`_\ ), closes `/github.com/saltstack-formulas/libvirt-formula/pull/77#issuecomment-652476823 <https://github.com//github.com/saltstack-formulas/libvirt-formula/pull/77/issues/issuecomment-652476823>`_
+* **map.jinja:** it's prettier with the Jinja open mark not indented (\ `c81943b <https://github.com/saltstack-formulas/libvirt-formula/commit/c81943bb0c5c4f419923c360954acfb94c653194>`_\ )
+
 `3.7.5 <https://github.com/saltstack-formulas/libvirt-formula/compare/v3.7.4...v3.7.5>`_ (2020-05-03)
 ---------------------------------------------------------------------------------------------------------
 
