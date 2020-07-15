@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`3.8.0 <https://github.com/saltstack-formulas/libvirt-formula/compare/v3.7.6...v3.8.0>`_ (2020-07-15)
+---------------------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **map:** the “map.jinja” file is now generic (\ `d2d35ac <https://github.com/saltstack-formulas/libvirt-formula/commit/d2d35acddbbc9c9653587464462e213da71b3437>`_\ )
+
 `3.7.6 <https://github.com/saltstack-formulas/libvirt-formula/compare/v3.7.5...v3.7.6>`_ (2020-07-10)
 ---------------------------------------------------------------------------------------------------------
 
