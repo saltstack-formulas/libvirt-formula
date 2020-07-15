@@ -172,5 +172,5 @@
 {%-   endif %}
 {%- endfor %}
 
-{%- do salt["log.debug"]("map.jinja: save parameters in variable 'libvirt_settings'") %}
-{%- set libvirt_settings = _config["stack"] %}
+{%- do salt["log.debug"]("map.jinja: save parameters in variable 'mapdata'") %}
+{%- set mapdata = _config["stack"] %}
