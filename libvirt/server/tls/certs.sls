@@ -5,7 +5,7 @@
 {%- set tplroot = tpldir.split('/')[0] %}
 {%- set sls_python = tplroot ~ '.python' %}
 {%- set sls_server_config = tplroot ~ '.server.config' %}
-{%- from tplroot ~ "/map.jinja" import libvirt_settings with context %}
+{%- from tplroot ~ "/map.jinja" import mapdata as libvirt_settings with context %}
 {%- from tplroot ~ "/python.jinja" import switch_python32 with context %}
 
 {%- set package = switch_python32(libvirt_settings.python3_pkg, libvirt_settings.python2_pkg) %}

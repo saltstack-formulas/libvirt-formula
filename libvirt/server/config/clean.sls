@@ -4,7 +4,7 @@
 {#- Get the `tplroot` from `tpldir` #}
 {%- set tplroot = tpldir.split('/')[0] %}
 {%- set sls_server_service_clean = tplroot ~ '.server.service.clean' %}
-{%- from tplroot ~ "/map.jinja" import libvirt_settings with context %}
+{%- from tplroot ~ "/map.jinja" import mapdata as libvirt_settings with context %}
 
 include:
   - {{ sls_server_service_clean }}
