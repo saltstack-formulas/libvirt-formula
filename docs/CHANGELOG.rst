@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`3.8.1 <https://github.com/saltstack-formulas/libvirt-formula/compare/v3.8.0...v3.8.1>`_ (2020-07-24)
+---------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **map:** ``path_join`` can't be used on windows (\ `c2b3465 <https://github.com/saltstack-formulas/libvirt-formula/commit/c2b34655a9339ff1b453a47ab1ed7e43f91ece39>`_\ )
+
 `3.8.0 <https://github.com/saltstack-formulas/libvirt-formula/compare/v3.7.6...v3.8.0>`_ (2020-07-15)
 ---------------------------------------------------------------------------------------------------------
 

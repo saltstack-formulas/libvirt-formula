@@ -1,7 +1,7 @@
 name: libvirt
 os: Debian, CentOS, openSUSE, Suse
 os_family: Debian, RedHat, Suse
-version: 3.8.0
+version: 3.8.1
 release: 1
 minimum_version: 2018.3
 summary: libvirt formula
