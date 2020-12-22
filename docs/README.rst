@@ -36,6 +36,11 @@ See `Formula Versioning Section <https://docs.saltstack.com/en/latest/topics/dev
 More information `SALT AS A CLOUD CONTROLLER
 <https://docs.saltstack.com/en/latest/topics/tutorials/cloud_controller.html>`_.
 
+If you need (non-default) configuration, please refer to:
+
+- the ``pillar.example`` file
+- `how to configure the formula with map.jinja <map.jinja.rst>`_
+
 Contributing to this repo
 -------------------------
 
