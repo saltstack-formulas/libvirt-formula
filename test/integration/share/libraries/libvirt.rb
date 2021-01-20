@@ -16,6 +16,7 @@ class LibvirtResource < Inspec.resource(1)
   attr_reader :packages
 
   def initialize
+    super
     @packages = inspec.libvirt_packages.packages
   end
 

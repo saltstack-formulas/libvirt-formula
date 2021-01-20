@@ -14,6 +14,7 @@ class LibvirtSocketAdminResource < Inspec.resource(1)
   supports platform_name: 'opensuse'
 
   def initialize
+    super
     if skipped_platform?
       raise Inspec::Exceptions::ResourceSkipped, 'No admin socket on this platform'
     end

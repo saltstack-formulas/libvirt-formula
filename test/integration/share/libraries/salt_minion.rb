@@ -14,6 +14,7 @@ class SaltMinionResource < Inspec.resource(1)
   supports platform_name: 'opensuse'
 
   def initialize
+    super
     @salt_python_version = try_python_import_salt
     @version_string = version_string
   end
