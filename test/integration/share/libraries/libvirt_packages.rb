@@ -4,6 +4,7 @@
 # Author: Daniel Dehennin <daniel.dehennin@ac-dijon.fr>
 # Copyright (C) 2019 Pole de Competences Logiciels Libres <eole@ac-dijon.fr>
 
+# rubocop:disable Metrics/ClassLength
 class LibvirtPackagesResource < Inspec.resource(1)
   name 'libvirt_packages'
 
@@ -129,3 +130,4 @@ class LibvirtPackagesResource < Inspec.resource(1)
     end
   end
 end
+# rubocop:enable Metrics/ClassLength
