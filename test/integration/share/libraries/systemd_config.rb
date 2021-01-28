@@ -14,6 +14,7 @@ class SystemdConfigResource < Inspec.resource(1)
   supports platform_name: 'opensuse'
 
   def initialize(service_name)
+    super()
     @service_name = service_name
     @service_config = read_systemd_show
   end

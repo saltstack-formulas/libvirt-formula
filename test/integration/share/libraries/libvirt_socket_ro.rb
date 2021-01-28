@@ -14,6 +14,7 @@ class LibvirtSocketRoResource < Inspec.resource(1)
   supports platform_name: 'opensuse'
 
   def initialize
+    super
     @file = inspec.file('/var/run/libvirt/libvirt-sock-ro')
     @systemd_status = inspec.systemd_config('libvirtd-ro.socket')
   end
