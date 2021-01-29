@@ -1,5 +1,24 @@
 # Changelog
 
+## [3.8.2](https://github.com/saltstack-formulas/libvirt-formula/compare/v3.8.1...v3.8.2) (2021-01-29)
+
+
+### Bug Fixes
+
+* **inspec:** `initialize` requires a call to parent class ([d00e845](https://github.com/saltstack-formulas/libvirt-formula/commit/d00e8459ec72d137f505a97a8b264884363d1c5a))
+* **inspec:** don't check line count of LibvirtPackagesResource ([d6fe66d](https://github.com/saltstack-formulas/libvirt-formula/commit/d6fe66d91f786690094f61748c77de72ab80b44b))
+
+
+### Continuous Integration
+
+* **commitlint:** ensure `upstream/master` uses main repo URL [skip ci] ([1e93759](https://github.com/saltstack-formulas/libvirt-formula/commit/1e937595cf8d7b336d2fabe303dd3c71d1a2ca54))
+* **gitlab-ci:** add `rubocop` linter (with `allow_failure`) [skip ci] ([5b6e511](https://github.com/saltstack-formulas/libvirt-formula/commit/5b6e51124e6ac28f2138db20a35ef0484c6041d7))
+* **gitlab-ci:** use GitLab CI as Travis CI replacement ([9a0210e](https://github.com/saltstack-formulas/libvirt-formula/commit/9a0210edc9d2eda70c7fe0e119c5e1ccb291e340))
+* **kitchen+gitlab:** update for new pre-salted images ([7622020](https://github.com/saltstack-formulas/libvirt-formula/commit/762202019f44913809436eb577304341a0744c91))
+* **pre-commit:** add to formula [skip ci] ([c0dd2e6](https://github.com/saltstack-formulas/libvirt-formula/commit/c0dd2e6273f93c3c0c84853693d5c461e5c322bd))
+* **pre-commit:** enable/disable `rstcheck` as relevant [skip ci] ([42dd701](https://github.com/saltstack-formulas/libvirt-formula/commit/42dd701cc4ad275a1966b7cbb7a8f71045c9f7bb))
+* **pre-commit:** finalise `rstcheck` configuration [skip ci] ([6d9ea29](https://github.com/saltstack-formulas/libvirt-formula/commit/6d9ea296f374d49fa599ca0f6d41248418939518))
+
 ## [3.8.1](https://github.com/saltstack-formulas/libvirt-formula/compare/v3.8.0...v3.8.1) (2020-07-24)
 
 
