@@ -2,7 +2,7 @@
 # vim: ft=yaml
 ---
 name: share
-title: libvirt formula
+title: InSpec shared resources
 maintainer: SaltStack Formulas
 license: Apache-2.0
 summary: shared resources
@@ -12,3 +12,10 @@ supports:
   - platform-name: centos
   - platform-name: fedora
   - platform-name: opensuse
+  - platform-name: suse
+  - platform-name: freebsd
+  - platform-name: amazon
+  - platform-name: oracle
+  - platform-name: arch
+  - platform-name: gentoo
+  - platform: windows
