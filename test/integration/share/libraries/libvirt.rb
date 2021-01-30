@@ -21,14 +21,14 @@ class LibvirtResource < Inspec.resource(1)
   end
 
   def daemon_config_dir
-    case inspec.os[:family]
+    case inspec.system.platform[:family]
     when 'debian'
       '/etc/default/'
     when 'redhat', 'fedora', 'suse'
       '/etc/sysconfig'
     else
       raise Inspec::Exceptions::ResourceSkipped,
-            "OS family #{inspec.os[:family]} not supported"
+            "OS family #{inspec.system.platform[:family]} not supported"
     end
   end
 
@@ -37,7 +37,7 @@ class LibvirtResource < Inspec.resource(1)
   end
 
   def service_name
-    case inspec.os[:name]
+    case inspec.system.platform[:name]
     when 'ubuntu'
       service_name_ubuntu
 
@@ -47,7 +47,7 @@ class LibvirtResource < Inspec.resource(1)
   end
 
   def service_name_ubuntu
-    case inspec.os[:release]
+    case inspec.system.platform[:release]
     when /^16/
       'libvirt-bin'
 
