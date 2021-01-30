@@ -28,11 +28,13 @@ class LibvirtSocketAdminResource < Inspec.resource(1)
   end
 
   def skipped_debian?
-    inspec.os[:name] == 'debian' && inspec.os[:release].match(/^8/)
+    inspec.system.platform[:name] ==
+      'debian' && inspec.system.platform[:release].match(/^8/)
   end
 
   def skipped_ubuntu?
-    inspec.os[:name] == 'ubuntu' && inspec.os[:release].match(/^16/)
+    inspec.system.platform[:name] ==
+      'ubuntu' && inspec.system.platform[:release].match(/^16/)
   end
 
   def config_owner

@@ -31,7 +31,7 @@ class LibvirtPackagesResource < Inspec.resource(1)
 
   def build_os_family_packages
     # osfamily.yaml / osmap.yaml
-    case inspec.os[:family]
+    case inspec.system.platform[:family]
     when 'debian'
       build_debian_packages
 
@@ -48,7 +48,7 @@ class LibvirtPackagesResource < Inspec.resource(1)
 
   def build_os_name_packages
     # osfamily.yaml / osmap.yaml
-    case inspec.os[:name]
+    case inspec.system.platform[:name]
     when 'centos'
       build_centos_packages
 
@@ -108,7 +108,7 @@ class LibvirtPackagesResource < Inspec.resource(1)
   end
 
   def build_centos_packages
-    case inspec.os[:release]
+    case inspec.system.platform[:release]
     when /^7/
       if inspec.salt_minion.python3?
         { 'python' => [] }
@@ -122,7 +122,7 @@ class LibvirtPackagesResource < Inspec.resource(1)
   end
 
   def build_ubuntu_packages
-    case inspec.os[:release]
+    case inspec.system.platform[:release]
     when /^16/
       { 'libvirt' => ['libvirt-bin'] }
     else
