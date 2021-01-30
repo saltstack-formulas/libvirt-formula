@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.8.3](https://github.com/saltstack-formulas/libvirt-formula/compare/v3.8.2...v3.8.3) (2021-01-30)
+
+
+### Code Refactoring
+
+* **inspec:** prefer shared system library to “inspec.os” ([9adfeb2](https://github.com/saltstack-formulas/libvirt-formula/commit/9adfeb2883411b58e8505e7fcb5b671d73e7c1ae))
+
 ## [3.8.2](https://github.com/saltstack-formulas/libvirt-formula/compare/v3.8.1...v3.8.2) (2021-01-29)
 
 
