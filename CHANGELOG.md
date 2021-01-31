@@ -1,5 +1,17 @@
 # Changelog
 
+# [3.9.0](https://github.com/saltstack-formulas/libvirt-formula/compare/v3.8.3...v3.9.0) (2021-01-31)
+
+
+### Features
+
+* **python:** define python3 package for OpenSuse Tumbleweed ([b6cc44c](https://github.com/saltstack-formulas/libvirt-formula/commit/b6cc44cf6622cad392d92fcf21609c61d15b1081))
+
+
+### Tests
+
+* **inspec:** tumbleweed OpenSUSE use “python38-libvirt-python” ([94b245f](https://github.com/saltstack-formulas/libvirt-formula/commit/94b245f4ca925f67c1aa534ebc2917a054213833))
+
 ## [3.8.3](https://github.com/saltstack-formulas/libvirt-formula/compare/v3.8.2...v3.8.3) (2021-01-30)
 
 
