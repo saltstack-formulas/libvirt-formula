@@ -99,12 +99,21 @@ class LibvirtPackagesResource < Inspec.resource(1)
     {
       'libvirt' => ['libvirt-daemon-qemu'],
       'extra' => ['libguestfs0'],
-      'python' => if inspec.salt_minion.python3?
-                    ['python3-libvirt-python']
-                  else
-                    ['python2-libvirt-python']
-                  end
+      'python' => build_suse_python_package
     }
+  end
+
+  def build_suse_python_package
+    case inspec.system.platform[:release]
+    when 'tumbleweed'
+      ['python38-libvirt-python']
+    else
+      if inspec.salt_minion.python3?
+        ['python3-libvirt-python']
+      else
+        ['python2-libvirt-python']
+      end
+    end
   end
 
   def build_centos_packages

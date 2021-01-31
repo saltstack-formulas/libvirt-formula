@@ -2,6 +2,16 @@
 # vim: ft=yaml
 ---
 values:
+  map_jinja:
+    sources:
+      - osarch
+      - os_family
+      - os
+      - oscodename
+      - osfinger
+      - config_get_lookup
+      - config_get
+      - id
   libvirt_pkg: libvirt
   qemu_pkg: qemu
   python2_pkg: libvirt-python
