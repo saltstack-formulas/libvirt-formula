@@ -8,8 +8,6 @@ driver:
   privileged: true
   run_command: /lib/systemd/systemd
 
-# Make sure the platforms listed below match up with
-# the `env.matrix` instances defined in `.travis.yml`
 platforms:
   ## SALT `tiamat`
   - name: debian-10-tiamat-py3
@@ -68,6 +66,10 @@ platforms:
   - name: fedora-33-master-py3
     driver:
       image: saltimages/salt-master-py3:fedora-33
+      provision_command:
+        - dnf -y update
+        - dnf install -y crypto-policies-scripts
+        - update-crypto-policies --set LEGACY
   - name: fedora-32-master-py3
     driver:
       image: saltimages/salt-master-py3:fedora-32
@@ -93,6 +95,9 @@ platforms:
   - name: oraclelinux-8-master-py3
     driver:
       image: saltimages/salt-master-py3:oraclelinux-8
+  - name: oraclelinux-7-master-py3
+    driver:
+      image: saltimages/salt-master-py3:oraclelinux-7
   - name: gentoo-stage3-latest-master-py3
     driver:
       image: saltimages/salt-master-py3:gentoo-stage3-latest
@@ -126,6 +131,10 @@ platforms:
   - name: fedora-33-3002-2-py3
     driver:
       image: saltimages/salt-3002.2-py3:fedora-33
+      provision_command:
+        - dnf -y update
+        - dnf install -y crypto-policies-scripts
+        - update-crypto-policies --set LEGACY
   - name: fedora-32-3002-2-py3
     driver:
       image: saltimages/salt-3002.2-py3:fedora-32
@@ -191,6 +200,10 @@ platforms:
   - name: fedora-33-3001-4-py3
     driver:
       image: saltimages/salt-3001.4-py3:fedora-33
+      provision_command:
+        - dnf -y update
+        - dnf install -y crypto-policies-scripts
+        - update-crypto-policies --set LEGACY
   - name: fedora-32-3001-4-py3
     driver:
       image: saltimages/salt-3001.4-py3:fedora-32
