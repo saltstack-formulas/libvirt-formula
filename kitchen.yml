@@ -324,6 +324,7 @@ suites:
       state_top:
         base:
           '*':
+            - libvirt._mapdata
             - libvirt
       pillars:
         top.sls:
@@ -342,6 +343,7 @@ suites:
       state_top:
         base:
           '*':
+            - libvirt._mapdata
             - libvirt
             - libvirt.clean
       pillars:
