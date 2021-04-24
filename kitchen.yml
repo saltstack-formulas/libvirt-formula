@@ -66,17 +66,9 @@ platforms:
   - name: fedora-34-master-py3
     driver:
       image: saltimages/salt-master-py3:fedora-34
-      provision_command:
-        - dnf -y update
-        - dnf install -y crypto-policies-scripts
-        - update-crypto-policies --set LEGACY
   - name: fedora-33-master-py3
     driver:
       image: saltimages/salt-master-py3:fedora-33
-      provision_command:
-        - dnf -y update
-        - dnf install -y crypto-policies-scripts
-        - update-crypto-policies --set LEGACY
   - name: fedora-32-master-py3
     driver:
       image: saltimages/salt-master-py3:fedora-32
@@ -135,17 +127,9 @@ platforms:
   - name: fedora-34-3003-0-py3
     driver:
       image: saltimages/salt-3003.0-py3:fedora-34
-      provision_command:
-        - dnf -y update
-        - dnf install -y crypto-policies-scripts
-        - update-crypto-policies --set LEGACY
   - name: fedora-33-3003-0-py3
     driver:
       image: saltimages/salt-3003.0-py3:fedora-33
-      provision_command:
-        - dnf -y update
-        - dnf install -y crypto-policies-scripts
-        - update-crypto-policies --set LEGACY
   - name: fedora-32-3003-0-py3
     driver:
       image: saltimages/salt-3003.0-py3:fedora-32
@@ -195,17 +179,9 @@ platforms:
   - name: fedora-34-3002-6-py3
     driver:
       image: saltimages/salt-3002.6-py3:fedora-34
-      provision_command:
-        - dnf -y update
-        - dnf install -y crypto-policies-scripts
-        - update-crypto-policies --set LEGACY
   - name: fedora-33-3002-6-py3
     driver:
       image: saltimages/salt-3002.6-py3:fedora-33
-      provision_command:
-        - dnf -y update
-        - dnf install -y crypto-policies-scripts
-        - update-crypto-policies --set LEGACY
   - name: fedora-32-3002-6-py3
     driver:
       image: saltimages/salt-3002.6-py3:fedora-32
@@ -275,17 +251,9 @@ platforms:
   - name: fedora-34-3001-7-py3
     driver:
       image: saltimages/salt-3001.7-py3:fedora-34
-      provision_command:
-        - dnf -y update
-        - dnf install -y crypto-policies-scripts
-        - update-crypto-policies --set LEGACY
   - name: fedora-33-3001-7-py3
     driver:
       image: saltimages/salt-3001.7-py3:fedora-33
-      provision_command:
-        - dnf -y update
-        - dnf install -y crypto-policies-scripts
-        - update-crypto-policies --set LEGACY
   - name: fedora-32-3001-7-py3
     driver:
       image: saltimages/salt-3001.7-py3:fedora-32
