@@ -12,6 +12,8 @@ class SaltMinionResource < Inspec.resource(1)
   supports platform_name: 'centos'
   supports platform_name: 'fedora'
   supports platform_name: 'opensuse'
+  supports platform_name: 'almalinux'
+  supports platform_name: 'rocky'
 
   def initialize
     super

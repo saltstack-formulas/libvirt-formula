@@ -13,6 +13,8 @@ class LibvirtPackagesResource < Inspec.resource(1)
   supports platform_name: 'centos'
   supports platform_name: 'fedora'
   supports platform_name: 'opensuse'
+  supports platform_name: 'almalinux'
+  supports platform_name: 'rocky'
 
   attr_reader :packages
 
@@ -49,7 +51,7 @@ class LibvirtPackagesResource < Inspec.resource(1)
   def build_os_name_packages
     # osfamily.yaml / osmap.yaml
     case inspec.system.platform[:name]
-    when 'centos'
+    when 'centos', 'almalinux', 'rockylinux'
       build_centos_packages
 
     when 'ubuntu'

@@ -8,6 +8,7 @@ control 'Libvirt service' do
   title 'verify running service'
 
   describe service('libvirtd') do
+    it { should be_installed }
     it { should be_enabled }
     it { should be_running }
   end
