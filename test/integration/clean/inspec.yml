@@ -15,3 +15,5 @@ supports:
   - platform-name: centos
   - platform-name: fedora
   - platform-name: opensuse
+  - platform-name: almalinux
+  - platform-name: rocky
