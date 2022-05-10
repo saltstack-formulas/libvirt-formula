@@ -134,6 +134,8 @@ class LibvirtPackagesResource < Inspec.resource(1)
 
   def build_ubuntu_packages
     case inspec.system.platform[:release]
+    when /^22/
+      { 'qemu' => ['qemu-system-x86'] }
     when /^16/
       { 'libvirt' => ['libvirt-bin'] }
     else
