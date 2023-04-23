@@ -28,6 +28,11 @@ libvirt-server-config-files-libvirtd-file-managed:
     - watch_in:
       - service: libvirt-server-service-running-service-running
 
+libvirt-server-config-files-daemonconfig-dir-managed:
+  file.directory:
+    - name: {{ libvirt_settings.daemon_config_path }}
+    - mode: '0755'
+
 libvirt-server-config-files-daemonconfig-file-managed:
   file.managed:
     - name: {{ libvirt_settings.daemon_config_path }}/{{ libvirt_settings.libvirt_service }}
@@ -39,5 +44,6 @@ libvirt-server-config-files-daemonconfig-file-managed:
               }}
     - require:
       - pkg: libvirt-server-package-install-pkg-installed
+      - file: libvirt-server-config-files-daemonconfig-dir-managed
     - watch_in:
       - service: libvirt-server-service-running-service-running
