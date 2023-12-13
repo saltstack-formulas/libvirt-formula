@@ -78,7 +78,8 @@ class LibvirtPackagesResource < Inspec.resource(1)
   def build_debian_packages
     {
       'libvirt' => ['libvirt-daemon-system'],
-      'extra' => %w[libguestfs0 libguestfs-tools gnutls-bin virt-top],
+      'qemu' => ['qemu-system-x86'],
+      'extra' => %w[libguestfs0 libguestfs-tools gnutls-bin],
       'python' => if inspec.salt_minion.python3?
                     ['python3-libvirt']
                   else
@@ -134,8 +135,6 @@ class LibvirtPackagesResource < Inspec.resource(1)
 
   def build_ubuntu_packages
     case inspec.system.platform[:release]
-    when /^22/
-      { 'qemu' => ['qemu-system-x86'] }
     when /^16/
       { 'libvirt' => ['libvirt-bin'] }
     else
