@@ -144,10 +144,10 @@ rubocop:
 # default-oraclelinux-7-tiamat-py3: {extends: '.test_instance'}
 # default-almalinux-8-tiamat-py3: {extends: '.test_instance'}
 # default-rockylinux-8-tiamat-py3: {extends: '.test_instance'}
-# default-debian-11-master-py3: {extends: '.test_instance'}
+default-debian-11-master-py3: {extends: '.test_instance'}
 default-debian-10-master-py3: {extends: '.test_instance'}
 # clean-debian-10-master-py3: {extends: '.test_instance'}
-default-debian-9-master-py3: {extends: '.test_instance'}
+# default-debian-9-master-py3: {extends: '.test_instance'}
 default-ubuntu-2204-master-py3: {extends: '.test_instance_failure_permitted'}
 default-ubuntu-2004-master-py3: {extends: '.test_instance'}
 default-ubuntu-1804-master-py3: {extends: '.test_instance'}

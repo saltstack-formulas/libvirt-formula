@@ -11,5 +11,4 @@
 ---
 values:
   python2_pkg: ~
-  python3_pkg: python3-libvirt
 ...
