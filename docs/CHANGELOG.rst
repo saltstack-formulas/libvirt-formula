@@ -2,6 +2,70 @@
 Changelog
 =========
 
+`3.10.0 <https://github.com/saltstack-formulas/libvirt-formula/compare/v3.9.0...v3.10.0>`_ (2023-12-13)
+-----------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* correct package names for debian 11, drop support for debian 9 (\ `a9cd134 <https://github.com/saltstack-formulas/libvirt-formula/commit/a9cd134c9e43ae2b828206b1d8e069d579862075>`_\ )
+* **config:** ensure daemon dir is created (\ `4a64329 <https://github.com/saltstack-formulas/libvirt-formula/commit/4a64329226c61f7716de36425bd0904f478e677a>`_\ )
+* **libsaltcli+libmatchers:** ensure Salt client API detection [skip ci] (\ `36db358 <https://github.com/saltstack-formulas/libvirt-formula/commit/36db358c48f01b07a4c987e1ef845e1da8d85190>`_\ )
+* **parameters:** correct parameters for Arch (\ `cc19cd3 <https://github.com/saltstack-formulas/libvirt-formula/commit/cc19cd3fa7d84f908532806dfb92144c6f7b5b8a>`_\ )
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* update ``pre-commit`` configuration inc. for pre-commit.ci [skip ci] (\ `edd2c3f <https://github.com/saltstack-formulas/libvirt-formula/commit/edd2c3f7f69f30eab9b396992b5c7b0cd6fd765b>`_\ )
+* **kitchen+gitlab:** update for new pre-salted images [skip ci] (\ `f61c088 <https://github.com/saltstack-formulas/libvirt-formula/commit/f61c0883324de7e35d633718bcd4ce9337671270>`_\ )
+* update linters to latest versions [skip ci] (\ `e912656 <https://github.com/saltstack-formulas/libvirt-formula/commit/e912656e0157aca2f4a32dcd24fad2688cb8c9e3>`_\ )
+* **3003.1:** update inc. AlmaLinux, Rocky & ``rst-lint`` [skip ci] (\ `a8f8e24 <https://github.com/saltstack-formulas/libvirt-formula/commit/a8f8e2404b771fbc3d7d75caa9610c1d7e804fa4>`_\ )
+* **gemfile:** allow rubygems proxy to be provided as an env var [skip ci] (\ `d8c8d7a <https://github.com/saltstack-formulas/libvirt-formula/commit/d8c8d7a14ba9f07b53b95ae469f72940eda38eed>`_\ )
+* **gemfile+lock:** use ``ssf`` customised ``inspec`` repo [skip ci] (\ `72cc84b <https://github.com/saltstack-formulas/libvirt-formula/commit/72cc84b2eea1c807a4841602a3e4ea9a5a3241d0>`_\ )
+* **gemfile+lock:** use ``ssf`` customised ``kitchen-docker`` repo [skip ci] (\ `f5f6ba0 <https://github.com/saltstack-formulas/libvirt-formula/commit/f5f6ba0389d264c03452260bd0327d3e4d75cf45>`_\ )
+* **kitchen:** move ``provisioner`` block & update ``run_command`` [skip ci] (\ `0db92c0 <https://github.com/saltstack-formulas/libvirt-formula/commit/0db92c0d9b194c6a0aac7075a7095455760b67d6>`_\ )
+* **kitchen:** remove Fedora legacy ``crypto-policies`` workaround [skip ci] (\ `cf93fb1 <https://github.com/saltstack-formulas/libvirt-formula/commit/cf93fb14c0d864fd81b9a82635c210a2e2e66477>`_\ )
+* **kitchen+ci:** update with ``3004`` pre-salted images/boxes [skip ci] (\ `9aab7f4 <https://github.com/saltstack-formulas/libvirt-formula/commit/9aab7f4ae0dccadf0f7ed0cc36fd08add1c521e5>`_\ )
+* **kitchen+ci:** update with latest ``3003.2`` pre-salted images [skip ci] (\ `de4ce37 <https://github.com/saltstack-formulas/libvirt-formula/commit/de4ce376f49ff7a62f4c08c30bdad821a14bb1d1>`_\ )
+* **kitchen+ci:** update with latest CVE pre-salted images [skip ci] (\ `096f752 <https://github.com/saltstack-formulas/libvirt-formula/commit/096f752b0eae3ac9b6534bf2d9e0950f35645d28>`_\ )
+* **kitchen+ci:** use latest pre-salted images (after CVE) [skip ci] (\ `6e6c0d9 <https://github.com/saltstack-formulas/libvirt-formula/commit/6e6c0d933de90028dc2bd3eabcefa1775aabd7da>`_\ )
+* **kitchen+gitlab:** adjust matrix to add ``3003`` [skip ci] (\ `ec00e3e <https://github.com/saltstack-formulas/libvirt-formula/commit/ec00e3eb34bc263566ce92bcd647ed45050e14af>`_\ )
+* **kitchen+gitlab:** update for new pre-salted images [skip ci] (\ `a079cdc <https://github.com/saltstack-formulas/libvirt-formula/commit/a079cdc2a0f03d68e1732656378e5a2ac6cfb0ed>`_\ )
+* add Debian 11 Bullseye & update ``yamllint`` configuration [skip ci] (\ `5c8976c <https://github.com/saltstack-formulas/libvirt-formula/commit/5c8976cb758d33321efd5edbcc29de15392b2002>`_\ )
+* **kitchen+gitlab:** remove Ubuntu 16.04 & Fedora 32 (EOL) [skip ci] (\ `37c667a <https://github.com/saltstack-formulas/libvirt-formula/commit/37c667aa71143bafbdb0c7b6a80707ba4fdfd211>`_\ )
+* add ``arch-master`` to matrix and update ``.travis.yml`` [skip ci] (\ `2322349 <https://github.com/saltstack-formulas/libvirt-formula/commit/232234979f888992b73516458def557466a8175d>`_\ )
+* **kitchen+gitlab-ci:** use latest pre-salted images [skip ci] (\ `af8ebe1 <https://github.com/saltstack-formulas/libvirt-formula/commit/af8ebe119ae0ea44453b5f4069df505b03ae2ca8>`_\ )
+* **pre-commit:** update hook for ``rubocop`` [skip ci] (\ `7624e07 <https://github.com/saltstack-formulas/libvirt-formula/commit/7624e07e12a109d092043c5e6f77f089df4b4a9c>`_\ )
+
+Documentation
+^^^^^^^^^^^^^
+
+
+* **changelog:** use quoting to avoid ``rst`` violations [skip ci] (\ `a3df474 <https://github.com/saltstack-formulas/libvirt-formula/commit/a3df474339fa993abc62185d719dd22f063ddf9c>`_\ )
+
+Features
+^^^^^^^^
+
+
+* **alma+rocky:** add platforms (based on CentOS 8) [skip ci] (\ `d14c080 <https://github.com/saltstack-formulas/libvirt-formula/commit/d14c08055d38c17a0f62753d6b0b0289da4e95c6>`_\ )
+* **ubuntu-22.04:** use updated ``qemu`` package name [skip ci] (\ `9a4abe6 <https://github.com/saltstack-formulas/libvirt-formula/commit/9a4abe66829c5b9391e3b68ebbe94333fd2faba7>`_\ )
+
+Styles
+^^^^^^
+
+
+* **libsaltcli:** fix comments to jinja comments [skip ci] (\ `deb2513 <https://github.com/saltstack-formulas/libvirt-formula/commit/deb2513b3f7d1e8e1db6db91b5db18159d0c2317>`_\ )
+
+Tests
+^^^^^
+
+
+* **system:** add ``build_platform_codename`` [skip ci] (\ `88db281 <https://github.com/saltstack-formulas/libvirt-formula/commit/88db281821b21a6f6b1f510b5c8af395b3bfe37c>`_\ )
+* **system.rb:** add support for ``mac_os_x`` [skip ci] (\ `94ee554 <https://github.com/saltstack-formulas/libvirt-formula/commit/94ee554f6ded9c58ee122d40cc251a68e75c0e6b>`_\ )
+* standardise use of ``share`` suite & ``_mapdata`` state [skip ci] (\ `c1ab958 <https://github.com/saltstack-formulas/libvirt-formula/commit/c1ab958c2edfac346de7a095d674a61ac1831a47>`_\ )
+
 `3.9.0 <https://github.com/saltstack-formulas/libvirt-formula/compare/v3.8.3...v3.9.0>`_ (2021-01-31)
 ---------------------------------------------------------------------------------------------------------
 
