@@ -10,5 +10,12 @@
 # values: {}
 ---
 values:
-  python2_pkg: ~
+  qemu_pkg: qemu-kvm
+  extra_pkgs:
+    - python36-devel
+    - gcc
+    - libguestfs
+    - libvirt-devel
+    - pkgconf
+  daemon_config_path: /etc/sysconfig
 ...

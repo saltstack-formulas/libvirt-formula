@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # vim: ft=yaml
 #
-# Setup variables specific to salt['config.get']('osfinger') == CentOS Linux-7.
+# Setup variables specific to salt['config.get']('osfinger') == CentOS Stream-8.
 # You just need to add the key:values for this `osfinger` that differ
 # from `defaults.yaml`.
 #
@@ -10,6 +10,12 @@
 # values: {}
 ---
 values:
-  python2_pkg: libvirt-python
-  python3_pkg: ~
+  qemu_pkg: qemu-kvm
+  extra_pkgs:
+    - python36-devel
+    - gcc
+    - libguestfs
+    - libvirt-devel
+    - pkgconf-pkg-config
+  daemon_config_path: /etc/sysconfig
 ...

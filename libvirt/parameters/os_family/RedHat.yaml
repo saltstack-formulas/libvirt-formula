@@ -12,6 +12,9 @@
 values:
   qemu_pkg: qemu-kvm
   extra_pkgs:
+    - python3-devel
     - libguestfs
+    - libvirt-devel
+    - pkgconf
   daemon_config_path: /etc/sysconfig
 ...

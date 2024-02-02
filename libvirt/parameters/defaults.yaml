@@ -14,8 +14,7 @@ values:
       - id
   libvirt_pkg: libvirt
   qemu_pkg: qemu
-  python2_pkg: libvirt-python
-  python3_pkg: python3-libvirt
+  pip_pkg: libvirt-python
   libvirt_service: libvirtd
   libvirtd_config: /etc/libvirt/libvirtd.conf
   daemon_config_path: {}

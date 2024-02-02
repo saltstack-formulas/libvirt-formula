@@ -12,5 +12,7 @@
 values:
   daemon_config_path: /etc/conf.d
   qemu_pkg: qemu-full
-  python3_pkg: libvirt-python
+  extra_pkgs:
+    - python3-dev
+    - pkgconf
 ...

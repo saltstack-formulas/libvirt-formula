@@ -13,8 +13,9 @@ values:
   libvirt_pkg: libvirt-daemon-qemu
   qemu_pkg: qemu-kvm
   extra_pkgs:
+    - python3-dev
     - libguestfs0
-  python2_pkg: python2-libvirt-python
-  python3_pkg: python3-libvirt-python
+    - libvirt-devel
+    - pkg-config
   daemon_config_path: /etc/sysconfig
 ...
